@@ -60,17 +60,17 @@
         <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
             <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
             <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Raftech-PCB</a>
+            <div class="w3-dropdown-hover w3-hide-small w3-right">
 
+                <a href="login.php" class="w3-bar-item w3-button w3-padding-large w3-theme-d4">LOGIN</a>
 
-            <div class="w3-dropdown-hover w3-hide-small">
-                <button class="w3-button w3-padding-large">
+                <!-- <button class="w3-button w3-padding-large">
                     <img src="images/user1.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
-                    <!-- <span class="w3-badge w3-right w3-small w3-green">3</span> -->
                 </button>
                 <div class="w3-dropdown-content w3-card-4 w3-bar-block">
                     <a href=" #" class="w3-bar-item w3-button">My Profile</a>
                     <a href="#" class="w3-bar-item w3-button">Logout</a>
-                </div>
+                </div> -->
             </div>
 
 
@@ -84,9 +84,9 @@
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+        <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a> -->
+        <!-- <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a> -->
+        <a href="login.php" class="w3-bar-item w3-button w3-padding-large">Login</a>
     </div>
 
     <!-- Page Container -->
@@ -112,18 +112,11 @@
                 <!-- Accordion -->
                 <div class="w3-card w3-round">
                     <div class="w3-white">
-                        <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
-                        <div id="Demo1" class="w3-hide w3-container">
-                            <p>Some text..</p>
-                        </div>
-                        <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
-                        <div id="Demo2" class="w3-hide w3-container">
-                            <p>Some other text..</p>
-                        </div>
                         <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
                         <div id="Demo3" class="w3-hide w3-container">
                             <div class="w3-row-padding">
-                                <br>
+
+                                <!-- <br>
                                 <div class="w3-half">
                                     <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
                                 </div>
@@ -141,7 +134,7 @@
                                 </div>
                                 <div class="w3-half">
                                     <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -152,39 +145,69 @@
                 <div class="w3-card w3-round w3-white w3-hide-small">
                     <div class="w3-container">
                         <br>
-                        <p><strong>Interests</strong> </p>
-                        <p>
-                            <span class="w3-tag w3-small w3-theme-d5">News</span>
-                            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
-                            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
-                            <span class="w3-tag w3-small w3-theme-d2">Games</span>
-                            <span class="w3-tag w3-small w3-theme-d1">Friends</span>
-                            <span class="w3-tag w3-small w3-theme">Games</span>
-                            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
-                            <span class="w3-tag w3-small w3-theme-l2">Food</span>
-                            <span class="w3-tag w3-small w3-theme-l3">Design</span>
-                            <span class="w3-tag w3-small w3-theme-l4">Art</span>
-                            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
-                        </p>
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 4"></button> -->
+                                <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 5"></button> -->
+                            </div><br>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="images/produk1.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/produk2.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/produk3.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <!-- <div class="carousel-item">
+                                    <img src="images/produk4.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/produk5.jpg" class="d-block w-100" alt="...">
+                                </div> -->
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                            <br>
+                        </div>
                     </div>
                 </div>
                 <br>
 
                 <!-- Alert Box -->
-                <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+                <!-- <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
                     <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
                         <i class="fa fa-remove"></i>
                     </span>
                     <p><strong>Hey!</strong></p>
                     <p>People are looking at your profile. Find out who.</p>
-                </div>
+                </div> -->
 
                 <!-- End Left Column -->
             </div>
 
-            <!-- Middle Column -->
             <div class="w3-col m8">
                 <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+
+                    <h2>
+                        <center><strong>SELAMAT DATANG DI RAFTECH</strong></center>
+                    </h2><br>
+                    <hr class="w3-clear">
+                    <div class="">
+                        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis knostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+                    </div><br><br><br><br>
+
                     <h2>
                         <center><strong>Perhitungan Biaya Cetak PCB</strong></center>
                     </h2><br>
@@ -196,9 +219,9 @@
                     <div class="card-body">
 
                         <!--Text-->
-                        <p class="card-text">Mohon diisi sesuai dengan data sebenarnya. Kesalahan pengisian data dapat berakibat pada keterlambatan pemrosesan pesanan atau bahkan ditolak</p>
-                        <p class="card-text"><b>Target pengerjaan</b>: 2 hari kerja (minggu/tgl merah tidak termasuk) untuk pcb non masking/silkscreen, 3 hari kerja untuk pcb dengan masking/silkscreen, 4 hari kerja untuk pcb double layer (jumlah pesanan di bawah 10 pcs).
-                            Jika lebih dari 10 pcs, menyesuaikan beban kerja.</p>
+                        <h5 class="card-text">Mohon diisi sesuai dengan data sebenarnya. Kesalahan pengisian data dapat berakibat pada keterlambatan pemrosesan pesanan atau bahkan ditolak</h5>
+                        <h5 class="card-text"><b>Target pengerjaan</b>: 2 hari kerja (minggu/tgl merah tidak termasuk) untuk pcb non masking/silkscreen, 3 hari kerja untuk pcb dengan masking/silkscreen, 4 hari kerja untuk pcb double layer (jumlah pesanan di bawah 10 pcs).
+                            Jika lebih dari 10 pcs, menyesuaikan beban kerja.</h5>
                         <div class="card text-white bg-danger mb-3">
                             <div class="card-header"><i class="fa fa-warning" style="font-size:20px;color:yellow"></i> Ketentuan Desain PCB</div>
                             <div class="card-body">
