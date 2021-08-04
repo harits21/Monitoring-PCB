@@ -16,59 +16,71 @@
 CREATE DATABASE IF NOT EXISTS `db_pcb` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `db_pcb`;
 
+-- Dumping structure for table db_pcb.admin
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id_admin` int(11) NOT NULL,
+  `username_admin` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_admin`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table db_pcb.admin: ~0 rows (approximately)
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+
 -- Dumping structure for table db_pcb.bor
 CREATE TABLE IF NOT EXISTS `bor` (
   `id_bor` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_bor` timestamp NULL DEFAULT NULL,
+  `stop_bor` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_bor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.bor: ~1 rows (approximately)
+-- Dumping data for table db_pcb.bor: ~0 rows (approximately)
 /*!40000 ALTER TABLE `bor` DISABLE KEYS */;
-INSERT INTO `bor` (`id_bor`, `start`, `stop`) VALUES
+INSERT INTO `bor` (`id_bor`, `start_bor`, `stop_bor`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `bor` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.ctk_jalur_bwh
 CREATE TABLE IF NOT EXISTS `ctk_jalur_bwh` (
   `id_ctk_bwh` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_ctk_bwh` timestamp NULL DEFAULT NULL,
+  `stop_ctk_bwh` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_ctk_bwh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.ctk_jalur_bwh: ~1 rows (approximately)
+-- Dumping data for table db_pcb.ctk_jalur_bwh: ~0 rows (approximately)
 /*!40000 ALTER TABLE `ctk_jalur_bwh` DISABLE KEYS */;
-INSERT INTO `ctk_jalur_bwh` (`id_ctk_bwh`, `start`, `stop`) VALUES
+INSERT INTO `ctk_jalur_bwh` (`id_ctk_bwh`, `start_ctk_bwh`, `stop_ctk_bwh`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `ctk_jalur_bwh` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.ctk_jlr_atas
 CREATE TABLE IF NOT EXISTS `ctk_jlr_atas` (
   `id_ctk_atas` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_jlr_atas` timestamp NULL DEFAULT NULL,
+  `stop_jlr_atas` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_ctk_atas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.ctk_jlr_atas: ~1 rows (approximately)
+-- Dumping data for table db_pcb.ctk_jlr_atas: ~0 rows (approximately)
 /*!40000 ALTER TABLE `ctk_jlr_atas` DISABLE KEYS */;
-INSERT INTO `ctk_jlr_atas` (`id_ctk_atas`, `start`, `stop`) VALUES
+INSERT INTO `ctk_jlr_atas` (`id_ctk_atas`, `start_jlr_atas`, `stop_jlr_atas`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `ctk_jlr_atas` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.finishing
 CREATE TABLE IF NOT EXISTS `finishing` (
   `id_finishing` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_finishing` timestamp NULL DEFAULT NULL,
+  `stop_finishing` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_finishing`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.finishing: ~1 rows (approximately)
+-- Dumping data for table db_pcb.finishing: ~0 rows (approximately)
 /*!40000 ALTER TABLE `finishing` DISABLE KEYS */;
-INSERT INTO `finishing` (`id_finishing`, `start`, `stop`) VALUES
+INSERT INTO `finishing` (`id_finishing`, `start_finishing`, `stop_finishing`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `finishing` ENABLE KEYS */;
 
@@ -92,33 +104,33 @@ INSERT INTO `karyawan` (`id_karyawan`, `nama_customer`, `no_invoice`, `spec_pcb`
 -- Dumping structure for table db_pcb.masking_atas
 CREATE TABLE IF NOT EXISTS `masking_atas` (
   `id_masking_atas` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_masking_atas` timestamp NULL DEFAULT NULL,
+  `stop_masking_atas` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_masking_atas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.masking_atas: ~1 rows (approximately)
+-- Dumping data for table db_pcb.masking_atas: ~0 rows (approximately)
 /*!40000 ALTER TABLE `masking_atas` DISABLE KEYS */;
-INSERT INTO `masking_atas` (`id_masking_atas`, `start`, `stop`) VALUES
+INSERT INTO `masking_atas` (`id_masking_atas`, `start_masking_atas`, `stop_masking_atas`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `masking_atas` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.masking_bwh
 CREATE TABLE IF NOT EXISTS `masking_bwh` (
   `id_masking_bwh` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_masking_bawah` timestamp NULL DEFAULT NULL,
+  `stop_masking_bawah` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_masking_bwh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.masking_bwh: ~1 rows (approximately)
+-- Dumping data for table db_pcb.masking_bwh: ~0 rows (approximately)
 /*!40000 ALTER TABLE `masking_bwh` DISABLE KEYS */;
-INSERT INTO `masking_bwh` (`id_masking_bwh`, `start`, `stop`) VALUES
+INSERT INTO `masking_bwh` (`id_masking_bwh`, `start_masking_bawah`, `stop_masking_bawah`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `masking_bwh` ENABLE KEYS */;
 
--- Dumping structure for table db_pcb.order
-CREATE TABLE IF NOT EXISTS `order` (
+-- Dumping structure for table db_pcb.order_masuk
+CREATE TABLE IF NOT EXISTS `order_masuk` (
   `no_invoice` int(11) NOT NULL,
   `nama_customer` varchar(50) NOT NULL,
   `spec_pcb` varchar(50) NOT NULL,
@@ -168,107 +180,107 @@ CREATE TABLE IF NOT EXISTS `order` (
   CONSTRAINT `FK_order_silkscreen_bwh` FOREIGN KEY (`id_silkscreen_bwh`) REFERENCES `silkscreen_bwh` (`id_silkscreen_bwh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.order: ~1 rows (approximately)
-/*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` (`no_invoice`, `nama_customer`, `spec_pcb`, `id_karyawan`, `jumlah`, `id_verif`, `id_potong`, `id_silkscreen_bwh`, `id_ctk_bwh`, `id_ctk_atas`, `id_masking_bwh`, `id_masking_atas`, `id_silkscreen_atas`, `id_bor`, `id_plating`, `id_finishing`, `id_qc`, `id_packing`) VALUES
-	(0, 'budi', 'gg', 1, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
-/*!40000 ALTER TABLE `order` ENABLE KEYS */;
+-- Dumping data for table db_pcb.order_masuk: ~1 rows (approximately)
+/*!40000 ALTER TABLE `order_masuk` DISABLE KEYS */;
+INSERT INTO `order_masuk` (`no_invoice`, `nama_customer`, `spec_pcb`, `id_karyawan`, `jumlah`, `id_verif`, `id_potong`, `id_silkscreen_bwh`, `id_ctk_bwh`, `id_ctk_atas`, `id_masking_bwh`, `id_masking_atas`, `id_silkscreen_atas`, `id_bor`, `id_plating`, `id_finishing`, `id_qc`, `id_packing`) VALUES
+	(1, 'budi', 'gg', 1, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+/*!40000 ALTER TABLE `order_masuk` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.order_verified
 CREATE TABLE IF NOT EXISTS `order_verified` (
   `id_verif` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_order` timestamp NULL DEFAULT NULL,
+  `stop_order` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_verif`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table db_pcb.order_verified: ~0 rows (approximately)
 /*!40000 ALTER TABLE `order_verified` DISABLE KEYS */;
-INSERT INTO `order_verified` (`id_verif`, `start`, `stop`) VALUES
+INSERT INTO `order_verified` (`id_verif`, `start_order`, `stop_order`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `order_verified` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.packing
 CREATE TABLE IF NOT EXISTS `packing` (
   `id_packing` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_packing` timestamp NULL DEFAULT NULL,
+  `stop_packing` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_packing`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.packing: ~1 rows (approximately)
+-- Dumping data for table db_pcb.packing: ~0 rows (approximately)
 /*!40000 ALTER TABLE `packing` DISABLE KEYS */;
-INSERT INTO `packing` (`id_packing`, `start`, `stop`) VALUES
+INSERT INTO `packing` (`id_packing`, `start_packing`, `stop_packing`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `packing` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.plating
 CREATE TABLE IF NOT EXISTS `plating` (
   `id_plating` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_plating` timestamp NULL DEFAULT NULL,
+  `stop_plating` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_plating`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.plating: ~1 rows (approximately)
+-- Dumping data for table db_pcb.plating: ~0 rows (approximately)
 /*!40000 ALTER TABLE `plating` DISABLE KEYS */;
-INSERT INTO `plating` (`id_plating`, `start`, `stop`) VALUES
+INSERT INTO `plating` (`id_plating`, `start_plating`, `stop_plating`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `plating` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.potong_pcb
 CREATE TABLE IF NOT EXISTS `potong_pcb` (
   `id_potong` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_potong` timestamp NULL DEFAULT NULL,
+  `stop_potong` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_potong`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.potong_pcb: ~1 rows (approximately)
+-- Dumping data for table db_pcb.potong_pcb: ~0 rows (approximately)
 /*!40000 ALTER TABLE `potong_pcb` DISABLE KEYS */;
-INSERT INTO `potong_pcb` (`id_potong`, `start`, `stop`) VALUES
+INSERT INTO `potong_pcb` (`id_potong`, `start_potong`, `stop_potong`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `potong_pcb` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.qc
 CREATE TABLE IF NOT EXISTS `qc` (
   `id_qc` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_qc` timestamp NULL DEFAULT NULL,
+  `stop_qc` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_qc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.qc: ~1 rows (approximately)
+-- Dumping data for table db_pcb.qc: ~0 rows (approximately)
 /*!40000 ALTER TABLE `qc` DISABLE KEYS */;
-INSERT INTO `qc` (`id_qc`, `start`, `stop`) VALUES
+INSERT INTO `qc` (`id_qc`, `start_qc`, `stop_qc`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `qc` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.silkscreen_atas
 CREATE TABLE IF NOT EXISTS `silkscreen_atas` (
   `id_silkscreen_atas` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_silkscreen_atas` timestamp NULL DEFAULT NULL,
+  `stop_silkscreen_atas` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_silkscreen_atas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.silkscreen_atas: ~1 rows (approximately)
+-- Dumping data for table db_pcb.silkscreen_atas: ~0 rows (approximately)
 /*!40000 ALTER TABLE `silkscreen_atas` DISABLE KEYS */;
-INSERT INTO `silkscreen_atas` (`id_silkscreen_atas`, `start`, `stop`) VALUES
+INSERT INTO `silkscreen_atas` (`id_silkscreen_atas`, `start_silkscreen_atas`, `stop_silkscreen_atas`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `silkscreen_atas` ENABLE KEYS */;
 
 -- Dumping structure for table db_pcb.silkscreen_bwh
 CREATE TABLE IF NOT EXISTS `silkscreen_bwh` (
   `id_silkscreen_bwh` int(11) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
-  `stop` timestamp NULL DEFAULT NULL,
+  `start_silkscreen_bwh` timestamp NULL DEFAULT NULL,
+  `stop_silkscreen_bwh` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_silkscreen_bwh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_pcb.silkscreen_bwh: ~1 rows (approximately)
+-- Dumping data for table db_pcb.silkscreen_bwh: ~0 rows (approximately)
 /*!40000 ALTER TABLE `silkscreen_bwh` DISABLE KEYS */;
-INSERT INTO `silkscreen_bwh` (`id_silkscreen_bwh`, `start`, `stop`) VALUES
+INSERT INTO `silkscreen_bwh` (`id_silkscreen_bwh`, `start_silkscreen_bwh`, `stop_silkscreen_bwh`) VALUES
 	(1, NULL, NULL);
 /*!40000 ALTER TABLE `silkscreen_bwh` ENABLE KEYS */;
 
