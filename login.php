@@ -1,8 +1,14 @@
+<?php
+include 'koneksi.php';
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Login V18</title>
+    <title>Form Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -34,24 +40,40 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
+
+                <form class="login100-form validate-form" method="POST" role="form">
                     <span class="login100-form-title p-b-43">
                         LOGIN
                     </span>
                     <br><br>
 
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <div class="wrap-input100 validate-input" data-validate="Email Harus Benar">
                         <input class="input100" type="text" name="email">
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
 
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <div class="wrap-input100 validate-input" data-validate="Password Harus Benar">
                         <input class="input100" type="password" name="pass">
                         <span class="focus-input100"></span>
                         <span class="label-input100">Password</span>
                     </div>
+
+                    <?php
+                    if (isset($_POST['login'])) {
+                        $ambil = $koneksi->query("SELECT * FROM user WHERE email='$_POST[email]' AND password ='$_POST[pass]' ");
+                        $cocok = $ambil->num_rows;
+                        if ($cocok == 1) {
+                            $_SESSION['user'] = $ambil->fetch_assoc();
+                            echo "<div class= 'alert alert-info'> Login Sukses </div>";
+                            echo "<meta http-equiv= 'refresh' content='1;url=tes.php'>";
+                        } else {
+                            echo "<div class= 'alert alert-danger'> Login Gagal </div>";
+                            echo "<meta http-equiv= 'refresh' content='1;url=login.php'>";
+                        }
+                    }
+                    ?>
 
                     <div class="flex-sb-m w-full p-t-3 p-b-32">
                         <div class="contact100-form-checkbox">
@@ -70,7 +92,7 @@
 
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" style=" background-color: #5091f4;" type="submit">
+                        <button class="login100-form-btn" style=" background-color: #5091f4;" type="submit" value="login" name="login">
                             Login
                         </button>
                     </div>
@@ -87,7 +109,6 @@
                             <strong>
                                 << </strong> Kembali ke Halaman Utama </a>
                     </div>
-
                 </form>
 
                 <div class="login100-more" style="background-image: url('images/raftech.png');">

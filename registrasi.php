@@ -1,8 +1,13 @@
+<?php
+include 'koneksi.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Login V18</title>
+    <title>Form Registrasi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -34,39 +39,39 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
-                    <span class="login100-form-title p-b-43">
+                <form class="login100-form validate-form" method="post" role="form">
+                    <span class=" login100-form-title p-b-43">
                         Registrasi
                     </span>
                     <br><br>
 
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="nama">
+                    <div class="wrap-input100 validate-input" data-validate="Nama Harus Diisi">
+                        <input class="input100" type="text" name="nama" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Nama</span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="number" name="no_telp">
+                    <div class="wrap-input100 validate-input" data-validate="No.Telp Harus Diisi">
+                        <input class="input100" type="number" name="no_telp" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">No Telpon</span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email">
+                    <div class="wrap-input100 validate-input" data-validate="Email Harus Diisi">
+                        <input class="input100" type="text" name="email" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass">
+                    <div class="wrap-input100 validate-input" data-validate="Password Harus Diisi">
+                        <input class="input100" type="password" name="pass" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Password</span>
                     </div>
 
                     <br>
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" style=" background-color: #5091f4;" type="submit">
+                        <button class="login100-form-btn" style=" background-color: #5091f4;" name="register">
                             Submit
                         </button>
                     </div>
@@ -76,9 +81,23 @@
                     <div class="text-center p-t-46 p-b-20">
                         <a href="login.php">Sudah Punya Akun ? <strong>Kembali ke Login</strong> </a>
                     </div>
-
-
                 </form>
+
+                <?php
+                if (isset($_POST['register'])) {
+                    $koneksi->query(" INSERT INTO `user` (`id_user`, `nama_user`, `email`, `no_telp`, `password`) VALUES ('', '$_POST[nama]','$_POST[email]','$_POST[no_telp]','$_POST[pass]' );");
+                    echo "<script>alert('Registrasi Berhasil, Silahkan Login');</script>";
+                    echo "<script>location='login.php';</script>";
+                }
+                ?>
+
+                <?php
+                if (isset($_POST['add'])) {
+                    $koneksi->query(" INSERT INTO `userkp` (`id_user`, `nama_user`, `username`, `password`) VALUES ('', '$_POST[nama]', '$_POST[Username]', '$_POST[password]' );");
+                    echo "<script>alert('Registrasi Berhasil');</script>";
+                    echo "<script>location='loginuser.php';</script>";
+                }
+                ?>
 
                 <div class="login100-more" style="background-image: url('images/raftech.png');">
                 </div>
