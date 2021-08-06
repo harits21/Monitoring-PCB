@@ -1,4 +1,6 @@
-<?php include_once('_templateKaryawan.php') ?>
+<?php include_once('_templateKaryawan.php');
+include 'koneksi.php';
+?>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,6 +19,8 @@
 </nav>
 <!-- END OF NAVBAR -->
 
+
+
 <!-- CONTENT -->
 <div class="container">
     <div class="row">
@@ -27,34 +31,42 @@
                     <label for="" class="col-sm-2 col-form-label">Nama Customer</label>
                     <div class="col-sm-10">
                         <select class="form-select" aria-label="Default select example">
-                            <option selected>--Pilih Nama Customer--</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option disabled selected>--Pilih Nama Customer--</option>
+                            <?php
+                            $sql = "SELECT * FROM order_masuk";
+                            $show = mysqli_query($koneksi, $sql);
+                            while ($data = mysqli_fetch_array($show)) {
+                            ?>
+                                <option value="<?php echo $data['nama_customer'] ?>"><?php echo $data['nama_customer'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">No Invoice</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>--Pilih No Invoice--</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" aria-label="Default select example" name="invoice" id="invoice">
+                            <option disabled selected>--Pilih No Invoice--</option>
+                            <?php
+                            $sql = "SELECT * FROM order_masuk";
+                            $show = mysqli_query($koneksi, $sql);
+                            while ($data = mysqli_fetch_array($show)) {
+                            ?>
+                                <option value="<?php echo $data['no_invoice'] ?>"><?php echo $data['no_invoice'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Spec PCB</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="" name="">
+                        <input type="text" class="form-control" id="spec" name="spec" readonly>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Jumlah</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="" name="">
+                        <input type="number" class="form-control" id="jumlah" name="jumlah" readonly>
                     </div>
                 </div>
                 <div class="row mb-3">

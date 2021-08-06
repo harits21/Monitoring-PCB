@@ -1,4 +1,6 @@
-<?php include_once('_templateKaryawan.php') ?>
+<?php include_once('_templateKaryawan.php');
+include 'koneksi.php';
+?>
 
 
 <!-- NAVBAR -->
@@ -28,13 +30,30 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nama</th>
+                        <th>#</th>
                         <th>No Invoice</th>
+                        <th>Nama</th>
                         <th>Spec PCB</th>
                         <th>jumlah</th>
-                        <th>Detail</th>
+                        <th></th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php
+                    $nomor = 1;
+                    $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk");
+                    while ($data = $ambil->fetch_assoc()) { ?>
+                        <tr>
+                            <td><?php echo $nomor; ?></td>
+                            <td><?php echo $data['no_invoice']; ?></td>
+                            <td><?php echo $data['nama_customer']; ?></td>
+                            <td><?php echo $data['spec_pcb']; ?></td>
+                            <td><?php echo $data['jumlah'] ?></td>
+                            <td><a href="" class="btn btn-warning">Detail</a></td>
+                        </tr>
+                        <?php $nomor++; ?>
+                    <?php } ?>
+                </tbody>
             </table>
         </div>
     </div>
