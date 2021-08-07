@@ -1,3 +1,11 @@
+<?php
+include 'koneksi.php';
+include_once("fungsi.php");
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,20 +42,69 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" method="POST">
                     <span class="login100-form-title p-b-43">
                         Lupa Password
                     </span>
                     <br><br>
 
+                    <?php
+                    if (isset($_SESSION['email']) != '') {
+                        header("location:index.php");
+                        exit();
+                    }
+
+                    $err = "";
+                    $sukses = "";
+                    $email = "";
+
+                    if (isset($_POST['submit'])) {
+                        $email = $_POST['email'];
+                        if ($email == '') {
+                            $err = 'Silahkan Masukan Email';
+                            $err = "<div class= 'alert alert-danger'>Silahkan Masukan Email</a></div>";
+                        } else {
+                            $sql1 = "select * from user where email_user ='$email' ";
+                            $q1 =  mysqli_query($koneksi, $sql1);
+                            $n1 = mysqli_num_rows($q1);
+
+                            if ($n1 < 1) {
+                                $err = "<div class= 'alert alert-danger'> Email : <b>$email</b> tidak ditemukan </div>";
+                            }
+                        }
+
+                        if (empty($err)) {
+                            $token_ganti_password = md5(rand(0, 1000));
+                            $judul_email = "Ganti Password";
+                            $isi_email = "Seseorang meminta untuk perubahan password, Silahkan klik link dibawah ini:</br>";
+                            $isi_email .= url_dasar() . "/ganti_password.php?email=$email&token=$token_ganti_password";
+                            kirim_email($email, $email, $judul_email, $isi_email);
+
+                            $sql1 = "update user set token_ganti_password = '$token_ganti_password' where email = '$email' ";
+                            mysqli_query($koneksi, $sql1);
+                            $sukses = "<div class= 'alert alert-info'>Link Ganti Password sudah dikirim ke email anda</div>";
+                        }
+                    }
+                    ?>
+
+                    <?php if ($err) {
+                        echo "<div class='error'>$err</div>";
+                    }
+                    ?>
+
+                    <?php if ($sukses) {
+                        echo "<div class='Sukses'>$sukses</div>";
+                    }
+                    ?>
+
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email">
+                        <input class="input100" type="text" name="email" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
                     <br>
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" style=" background-color: #5091f4;" type="submit">
+                        <button class="login100-form-btn" style=" background-color: #5091f4;" type="submit" name="submit" value="Lupa Password">
                             Submit
                         </button>
                     </div>

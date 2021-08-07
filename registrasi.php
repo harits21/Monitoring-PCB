@@ -85,17 +85,9 @@ session_start();
 
                 <?php
                 if (isset($_POST['register'])) {
-                    $koneksi->query(" INSERT INTO `user` (`id_user`, `nama_user`, `email`, `no_telp`, `password`) VALUES ('', '$_POST[nama]','$_POST[email]','$_POST[no_telp]','$_POST[pass]' );");
+                    $koneksi->query(" INSERT INTO `user` (`id_user`, `nama_user`, `email_user`, `no_telp`, `password`) VALUES ('', '$_POST[nama]','$_POST[email]','$_POST[no_telp]','$_POST[pass]' );");
                     echo "<script>alert('Registrasi Berhasil, Silahkan Login');</script>";
                     echo "<script>location='login.php';</script>";
-                }
-                ?>
-
-                <?php
-                if (isset($_POST['add'])) {
-                    $koneksi->query(" INSERT INTO `userkp` (`id_user`, `nama_user`, `username`, `password`) VALUES ('', '$_POST[nama]', '$_POST[Username]', '$_POST[password]' );");
-                    echo "<script>alert('Registrasi Berhasil');</script>";
-                    echo "<script>location='loginuser.php';</script>";
                 }
                 ?>
 
@@ -104,8 +96,6 @@ session_start();
             </div>
         </div>
     </div>
-
-
 
 
 

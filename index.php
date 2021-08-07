@@ -105,79 +105,49 @@
                 <div class="w3-card w3-round">
                     <div class="w3-white">
                         <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
-                        <div id="Demo3" class="w3-hide w3-container">
+                        <div id="Demo3" class="">
                             <div class="w3-row-padding">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-indicators">
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                    </div><br>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="images/produk1.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/produk2.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/produk3.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/produk4.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/produk5.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                        </div>
 
-                                <!-- <br>
-                                <div class="w3-half">
-                                    <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                    <br>
                                 </div>
-                                <div class="w3-half">
-                                    <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-                                </div>
-                                <div class="w3-half">
-                                    <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
-                                </div>
-                                <div class="w3-half">
-                                    <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
-                                </div>
-                                <div class="w3-half">
-                                    <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-                                </div>
-                                <div class="w3-half">
-                                    <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
-                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <br>
-
-                <!-- Interests -->
-                <div class="w3-card w3-round w3-white w3-hide-small">
-                    <div class="w3-container">
-                        <br>
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                            </div><br>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="images/produk1.jpg" class="d-block w-100" alt="..." height="270" width="300">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/produk2.jpg" class="d-block w-100" alt="..." height="270" width="300">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/produk3.jpg" class="d-block w-100" alt="..." height="270" width="300">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/produk4.jpg" class="d-block w-100" alt="..." height="270" width="300">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/produk5.jpg" class="d-block w-100" alt="..." height="270" width="300">
-                                </div>
-
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-                <!-- End Left Column -->
             </div>
 
             <div class="w3-col m8">
@@ -405,19 +375,19 @@
                                             <a href="https://shopee.co.id/product/100172996/5842125187/" target="_blank">Shopee</a>
                                         </p>
                                         <div class="view overlay z-depth-1-half">
-                                            <img src="img/catatan.png">
+                                            <img src="images/catatan.png">
                                         </div>
                                         <p></p>
                                         <p id="qty">2. Isikan jumlah pesanan sebanyak
                                         </p>
                                         <div class="view overlay z-depth-1-half">
-                                            <img src="img/jumlah.png" width="300" height="100">
+                                            <img src="images/jumlah.png" width="300" height="100">
                                         </div>
                                         <p></p>
                                         <p>3. Kirim file desain PCB Anda ke <b>raftechpcb@gmail.com</b> dengan subjek <b>No Invoice</b> dari Tokopedia/Bukalapak/Shopee
                                         </p>
                                         <div class="view overlay z-depth-1-half">
-                                            <img src="img/email3.png" width="300" height="300">
+                                            <img src="images/email3.png" width="300" height="300">
                                         </div>
                                         <p></p>
                                         <p>Jika Anda mengikuti prosedur di atas dengan benar maka orderan Anda akan semakin cepat diproses. Terima kasih</p>
@@ -628,6 +598,23 @@
         </div>
     </div>
     <br>
+
+    <!-- <div id="page-wrapper">
+        <div id="page-inner">
+            <?php
+            if (isset($_GET['halaman'])) {
+                if ($_GET['halaman'] == "login")
+                    include 'login.php';
+            } elseif (isset($_GET['halaman'])) {
+                if ($_GET['halaman'] == "edit")
+                    include 'edit.php';
+            } elseif (isset($_GET['halaman'])) {
+                if ($_GET['halaman'] == "hapusproduk")
+                    include 'hapusproduk.php';
+            }
+            ?>
+        </div>
+    </div> -->
 
     <!-- Footer -->
     <footer class="w3-container w3-theme-d5">
