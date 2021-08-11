@@ -38,7 +38,7 @@ include 'koneksi.php';
                             $no = 0;
                             while ($data = mysqli_fetch_array($hasil)) {
                                 $no++;
-                                $ket = '';
+                                $ket = "";
                                 if (isset($_GET['invoice'])) {
                                     $invoice = trim($_GET['invoice']);
 
@@ -47,7 +47,7 @@ include 'koneksi.php';
                                     }
                                 }
                             ?>
-                                <option <?php echo $ket; ?> value="<?php echo $data['no_invoice']; ?>"><?php echo $data['no_invoice'] ?> - <?php echo $data['nama_customer']; ?></option>
+                                <option <?php echo $ket; ?> value="<?php echo $data['no_invoice']; ?>"><?php echo $data['no_invoice']; ?> - <?php echo $data['nama_customer']; ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -62,7 +62,7 @@ include 'koneksi.php';
                     if (isset($_GET['invoice'])) {
                         $spek = $_GET["invoice"];
 
-                        $sql = "SELECT * FROM order_masuk WHERE no_invoice=$invoice";
+                        $sql = "SELECT * FROM order_masuk WHERE no_invoice= '$invoice' ";
                         $hasil = mysqli_query($koneksi, $sql);
                         $data = mysqli_fetch_assoc($hasil);
                     }
@@ -70,7 +70,7 @@ include 'koneksi.php';
                     ?>
 
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-3 ">
                     <label for="" class="col-sm-2 col-form-label">Spec PCB</label>
                     <div class="col-sm-10">
                         <input type="text" name="spec" class="form-control" value="<?php echo $data['spec_pcb']; ?>">
