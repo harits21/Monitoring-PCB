@@ -3,9 +3,10 @@
 <title>Raftech-PCB</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
@@ -104,10 +105,59 @@
                 <!-- Accordion -->
                 <div class="w3-card w3-round">
                     <div class="w3-white">
-                        <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+                        <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-picture-o fa-fw w3-margin-right"></i> My Photos</button>
                         <div id="Demo3" class="">
                             <div class="w3-row-padding">
-                                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                                    </ol><br>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="images/produk1.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <!-- <h5>First slide label</h5>
+                                                <p>Some representative placeholder content for the first slide.</p> -->
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/produk2.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/produk3.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/produk4.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="images/produk5.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+
+                                <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-indicators">
                                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -118,31 +168,51 @@
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
                                             <img src="images/produk1.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>First slide label</h5>
+                                                <p>Some representative placeholder content for the first slide.</p>
+                                            </div>
                                         </div>
                                         <div class="carousel-item">
                                             <img src="images/produk2.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>First slide label</h5>
+                                                <p>Some representative placeholder content for the first slide.</p>
+                                            </div>
                                         </div>
                                         <div class="carousel-item">
                                             <img src="images/produk3.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>First slide label</h5>
+                                                <p>Some representative placeholder content for the first slide.</p>
+                                            </div>
                                         </div>
                                         <div class="carousel-item">
                                             <img src="images/produk4.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>First slide label</h5>
+                                                <p>Some representative placeholder content for the first slide.</p>
+                                            </div>
                                         </div>
                                         <div class="carousel-item">
                                             <img src="images/produk5.jpg" class="d-block w-100" alt="..." height="270" width="300">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>First slide label</h5>
+                                                <p>Some representative placeholder content for the first slide.</p>
+                                            </div>
                                         </div>
 
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Previous</span>
                                     </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Next</span>
                                     </button>
                                     <br>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -181,9 +251,9 @@
                             <div class="card-header"><i class="fa fa-warning" style="font-size:20px;color:yellow"></i> Ketentuan Desain PCB</div>
                             <div class="card-body">
                                 <p class="card-text text-white">- Lebar jalur min 0.4 mm
-                                    <br>- Jarak antar jalur (clearance) min 0.5 mm <i class="fa fa-question-circle" style="font-size:20px;color:yellow" data-bs-toggle="modal" data-bs-target="#modaljalur"></i>
-                                    <br>- Diameter drill untuk lubang via/vias (through hole) untuk pcb double layer = 1 mm (lubang via saja, tidak untuk kaki komponen) <i class="fa fa-question-circle" style="font-size:20px;color:yellow" data-bs-toggle="modal" data-bs-target="#modalvia"></i>
-                                    <br>- Diameter drill untuk lubang via/vias (through hole) untuk pcb double layer = 1.1 mm (lubang via yang dimasuki kaki komponen) <i class="fa fa-question-circle" style="font-size:20px;color:yellow" data-bs-toggle="modal" data-bs-target="#modalvia"></i>
+                                    <br>- Jarak antar jalur (clearance) min 0.5 mm <i class="fa fa-question-circle" style="font-size:20px;color:yellow" data-toggle="modal" data-target="#modaljalur"></i>
+                                    <br>- Diameter drill untuk lubang via/vias (through hole) untuk pcb double layer = 1 mm (lubang via saja, tidak untuk kaki komponen) <i class="fa fa-question-circle" style="font-size:20px;color:yellow" data-toggle="modal" data-target="#modalvia"></i>
+                                    <br>- Diameter drill untuk lubang via/vias (through hole) untuk pcb double layer = 1.1 mm (lubang via yang dimasuki kaki komponen) <i class="fa fa-question-circle" style="font-size:20px;color:yellow" data-toggle="modal" data-target="#modalvia"></i>
                                     <br><br>Jika ada jalur yang <b><u>short</u></b> karena melanggar ketentuan, maka hal tsb di luar tanggung jawab kami
                                 </p>
                             </div>
@@ -192,7 +262,7 @@
                         <p class="card-text"> *Tekan tombol <i class="fa fa-question-circle" style="font-size:18px;color:red"></i> untuk petunjuk pengisian atau ketentuan di item tersebut</p>
                         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
 
-                        <h5 class="font-weight-normal mb-3"><strong>Ukuran PCB</strong>
+                        <h5 class="font-weight-normal mb-3"><strong> Ukuran PCB</strong>
                             <!--i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modalukuran"></i-->
                         </h5>
 
@@ -222,136 +292,143 @@
 
                         </div>
 
-                        <h5 class="font-weight-normal mb-3"><strong>Layer</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-bs-toggle="modal" data-bs-target="#modalpcb"></i></h5>
+                        <h5 class="font-weight-normal mb-3"><strong>Layer</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modalpcb"></i></h5>
                         <!-- Group of default radios - option 1 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputlayersingle" value="single" name="grouplayer" checked="">
-                            <label class="custom-control-label" for="inputlayersingle">Single</label>
-                        </div>
-
+                        <div class="form-check custom-control ">
+                            <input type="radio" class="form-check-input" id="inputlayersingle" value="single" name="grouplayer" checked>
+                            <label class="form-check-label" for="inputlayersingle">Single</label>
+                        </div><br>
                         <!-- Group of default radios - option 2 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputlayerdouble" value="double" name="grouplayer">
-                            <label class="custom-control-label" for="inputlayerdouble">Double
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputlayerdouble" value="double" name="grouplayer">
+                            <label class="form-check-label" for="inputlayerdouble">Double
                                 <!--i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modaldouble"></i-->
                             </label>
                         </div>
+
+                        <!-- <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Default radio
+                            </label>
+                        </div> -->
+
                         <hr>
-                        <h5 class="font-weight-normal mb-3"><strong>Tipe PCB</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-bs-toggle="modal" data-bs-target="#modalpcb"></i></h5>
+                        <h5 class="font-weight-normal mb-3"><strong>Tipe PCB</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modalpcb"></i></h5>
                         <!-- Group of default radios - option 1 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="defaultGroupExample1" value="fr2" name="grouppcb" checked="">
-                            <label class="custom-control-label" for="defaultGroupExample1">FR2 (Pertinaks) </label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="defaultGroupExample1" value="fr2" name="grouppcb" checked="">
+                            <label class="form-check-label" for="defaultGroupExample1">FR2 (Pertinaks) </label>
+                        </div><br>
 
                         <!-- Group of default radios - option 2 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="defaultGroupExample2" value="fr4" name="grouppcb">
-                            <label class="custom-control-label" for="defaultGroupExample2">FR4 (Fiber)</label>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="defaultGroupExample2" value="fr4" name="grouppcb">
+                            <label class="form-check-label" for="defaultGroupExample2">FR4 (Fiber)</label>
                         </div>
 
 
                         <hr>
-                        <h5 class="font-weight-normal mb-3"><strong>Masking Layer Atas?</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-bs-toggle="modal" data-bs-target="#modalmasking"></i></h5>
+                        <h5 class="font-weight-normal mb-3"><strong>Masking Layer Atas?</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modalmasking"></i></h5>
                         <!-- Group of default radios - option 1 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputmaskingatasmerah" value="merah" name="groupmaskingatas">
-                            <label class="custom-control-label" for="inputmaskingatasmerah">Ya, warna merah</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputmaskingatasmerah" value="merah" name="groupmaskingatas">
+                            <label class="form-check-label" for="inputmaskingatasmerah">Ya, warna merah</label>
+                        </div><br>
 
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputmaskingatasbiru" value="biru" name="groupmaskingatas">
-                            <label class="custom-control-label" for="inputmaskingatasbiru">Ya, warna biru</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputmaskingatasbiru" value="biru" name="groupmaskingatas">
+                            <label class="form-check-label" for="inputmaskingatasbiru">Ya, warna biru</label>
+                        </div><br>
 
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputmaskingatashijau" value="hijau" name="groupmaskingatas">
-                            <label class="custom-control-label" for="inputmaskingatashijau">Ya, warna hijau</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputmaskingatashijau" value="hijau" name="groupmaskingatas">
+                            <label class="form-check-label" for="inputmaskingatashijau">Ya, warna hijau</label>
+                        </div><br>
 
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputmaskingatas2" value="no" name="groupmaskingatas" checked="">
-                            <label class="custom-control-label" for="inputmaskingatas2">Tidak</label>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputmaskingatas2" value="no" name="groupmaskingatas" checked="">
+                            <label class="form-check-label" for="inputmaskingatas2">Tidak</label>
                         </div>
 
                         <hr>
-                        <h5 class="font-weight-normal mb-3"><strong>Masking Layer Bawah?</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-bs-toggle="modal" data-bs-target="#modalmasking"></i></h5>
+                        <h5 class="font-weight-normal mb-3"><strong>Masking Layer Bawah?</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modalmasking"></i></h5>
                         <!-- Group of default radios - option 1 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputmaskingbawahmerah" value="merah" name="groupmaskingbawah">
-                            <label class="custom-control-label" for="inputmaskingbawahmerah">Ya, warna merah</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputmaskingbawahmerah" value="merah" name="groupmaskingbawah">
+                            <label class="form-check-label" for="inputmaskingbawahmerah">Ya, warna merah</label>
+                        </div><br>
 
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputmaskingbawahbiru" value="biru" name="groupmaskingbawah">
-                            <label class="custom-control-label" for="inputmaskingbawahbiru">Ya, warna biru</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputmaskingbawahbiru" value="biru" name="groupmaskingbawah">
+                            <label class="form-check-label" for="inputmaskingbawahbiru">Ya, warna biru</label>
+                        </div><br>
 
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputmaskingbawahhijau" value="hijau" name="groupmaskingbawah">
-                            <label class="custom-control-label" for="inputmaskingbawahhijau">Ya, warna hijau</label>
-                        </div>
-
-
-
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputmaskingbawahhijau" value="hijau" name="groupmaskingbawah">
+                            <label class="form-check-label" for="inputmaskingbawahhijau">Ya, warna hijau</label>
+                        </div><br>
                         <!-- Group of default radios - option 2 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputmaskingbawah2" value="no" name="groupmaskingbawah" checked="">
-                            <label class="custom-control-label" for="inputmaskingbawah2">Tidak</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputmaskingbawah2" value="no" name="groupmaskingbawah" checked="">
+                            <label class="form-check-label" for="inputmaskingbawah2">Tidak</label>
+                        </div><br>
                         <hr>
-                        <h5 class="font-weight-normal mb-3"><strong>Silkscreen (Label Komponen)?</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-bs-toggle="modal" data-bs-target="#modalmasking"></i></h5>
+
+
+                        <h5 class="font-weight-normal mb-3"><strong>Silkscreen (Label Komponen)?</strong> <i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modalmasking"></i></h5>
                         <!-- Group of default radios - option 1 -->
 
-                        <div class="custom-control custom-radio">
+                        <div class="form-check custom-control">
                             <!-- <input type="radio" name="fruit" value="orange" id="orange">
                                     <label for="orange">orange</label-->
-                            <input type="radio" class="custom-control-input" id="inputsilkscreenputih" value="putih" name="groupsilkscreen">
-                            <label class="custom-control-label" for="inputsilkscreenputih">Ya, warna putih</label>
-                        </div>
+                            <input type="radio" class="form-check-input" id="inputsilkscreenputih" value="putih" name="groupsilkscreen">
+                            <label class="form-check-label" for="inputsilkscreenputih">Ya, warna putih</label>
+                        </div><br>
 
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputsilkscreenhitam" value="hitam" name="groupsilkscreen">
-                            <label class="custom-control-label" for="inputsilkscreenhitam">Ya, warna hitam</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputsilkscreenhitam" value="hitam" name="groupsilkscreen">
+                            <label class="form-check-label" for="inputsilkscreenhitam">Ya, warna hitam</label>
+                        </div><br>
 
                         <!-- Group of default radios - option 2 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputsilkscreen2" value="no" name="groupsilkscreen" checked="">
-                            <label class="custom-control-label" for="inputsilkscreen2">Tidak</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputsilkscreen2" value="no" name="groupsilkscreen" checked="">
+                            <label class="form-check-label" for="inputsilkscreen2">Tidak</label>
+                        </div><br>
+
+
                         <hr>
                         <h5 class="font-weight-normal mb-3"><strong>File Desain</strong> </h5>
                         <!-- Group of default radios - option 1 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputfile1" value="Software PCB" name="groupfile" checked="">
-                            <label class="custom-control-label" for="inputfile1">Software PCB (Eagle, Dip Trace, Gerber, dll)</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputfile1" value="Software PCB" name="groupfile" checked="">
+                            <label class="form-check-label" for="inputfile1">Software PCB (Eagle, Dip Trace, Gerber, dll)</label>
+                        </div><br>
 
                         <!-- Group of default radios - option 2 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="inputfile2" value="pdf" name="groupfile">
-                            <label class="custom-control-label" for="inputfile2">PDF, CDR, AI, DXF, dll <i class="fa fa-question-circle" style="font-size:18px;color:red" data-bs-toggle="modal" data-bs-target="#modalpdf"></i></label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="inputfile2" value="pdf" name="groupfile">
+                            <label class="form-check-label" for="inputfile2">PDF, CDR, AI, DXF, dll <i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modalpdf"></i></label>
+                        </div><br>
 
                         <hr>
                         <h5 class="font-weight-normal mb-3"><strong>Bentuk PCB</strong> </h5>
                         <!-- Group of default radios - option 1 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="bentukpcb1" value="kotak" name="groupbentuk" checked="">
-                            <label class="custom-control-label" for="bentukpcb1">Kotak</label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="bentukpcb1" value="kotak" name="groupbentuk" checked="">
+                            <label class="form-check-label" for="bentukpcb1">Kotak</label>
+                        </div><br>
 
                         <!-- Group of default radios - option 2 -->
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="bentukpcb2" value="nonkotak" name="groupbentuk">
-                            <label class="custom-control-label" for="bentukpcb2">Selain kotak (custom) <i class="fa fa-question-circle" style="font-size:18px;color:red" data-bs-toggle="modal" data-bs-target="#modalbentuk"></i></label>
-                        </div>
+                        <div class="form-check custom-control">
+                            <input type="radio" class="form-check-input" id="bentukpcb2" value="nonkotak" name="groupbentuk">
+                            <label class="form-check-label" for="bentukpcb2">Selain kotak (custom) <i class="fa fa-question-circle" style="font-size:18px;color:red" data-toggle="modal" data-target="#modalbentuk"></i></label>
+                        </div><br>
 
 
                         <hr>
                         <center><button type="button" id="hitung" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px; "> Hitung</button></center>
-
 
                         <!-- Modal -->
                         <div class="modal fade" id="summary" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -359,10 +436,11 @@
                             <div class="modal-dialog modal-notify modal-info" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="white-text" id="exampleModalLabel">SUMMARY</h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <h5 class="white-text" id="exampleModalLabel"><strong>SUMMARY</strong> </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true" class="white-text">×</span>
                                         </button>
+
                                     </div>
                                     <div class="modal-body">
                                         <!--h5 id="tes">uuu</h5><br-->
@@ -375,19 +453,22 @@
                                             <a href="https://shopee.co.id/product/100172996/5842125187/" target="_blank">Shopee</a>
                                         </p>
                                         <div class="view overlay z-depth-1-half">
-                                            <img src="images/catatan.png">
+                                            <img src="images/raftech.jpg">
+                                            <!-- <img src="images/catatan.png"> -->
                                         </div>
                                         <p></p>
                                         <p id="qty">2. Isikan jumlah pesanan sebanyak
                                         </p>
                                         <div class="view overlay z-depth-1-half">
-                                            <img src="images/jumlah.png" width="300" height="100">
+                                            <img src="images/raftech.jpg" width="300" height="100">
+                                            <!-- <img src="images/jumlah.png" width="300" height="100"> -->
                                         </div>
                                         <p></p>
                                         <p>3. Kirim file desain PCB Anda ke <b>raftechpcb@gmail.com</b> dengan subjek <b>No Invoice</b> dari Tokopedia/Bukalapak/Shopee
                                         </p>
                                         <div class="view overlay z-depth-1-half">
-                                            <img src="images/email3.png" width="300" height="300">
+                                            <img src="images/raftech.jpg" width="300" height="300">
+                                            <!-- <img src="images/email3.png" width="300" height="300"> -->
                                         </div>
                                         <p></p>
                                         <p>Jika Anda mengikuti prosedur di atas dengan benar maka orderan Anda akan semakin cepat diproses. Terima kasih</p>
@@ -395,7 +476,7 @@
                                         </p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger btn-md waves-effect waves-light" data-db-dismiss="modal" style="border-radius: 25px; ">Close</button>
+                                        <button type="button" class="btn btn-danger btn-md waves-effect waves-light" data-dismiss="modal" style="border-radius: 25px; ">Close</button>
                                         <!--button type="button" class="btn btn-primary">Save changes</button-->
                                     </div>
                                 </div>
@@ -408,13 +489,15 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Ketentuan Desain</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <center><img src="images/produk4.jpg" class="img-fluid" alt=""></center>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -427,13 +510,15 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Ketentuan lubang Via (Through Hole)</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <center><img src="images/via2.jpg" class="img-fluid" alt=""></center>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -445,13 +530,15 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Tipe PCB</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <center><img src="images/pcb.png" class="img-fluid" alt=""></center>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -462,13 +549,15 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Masking</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <center><img src="images/masking2.png" class="img-fluid" alt=""></center>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -479,13 +568,15 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">File Desain PDF</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <center><img src="images/pdf2.png" class="img-fluid" alt=""></center>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -496,14 +587,14 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Ketentuan Cetak PCB Double Layer</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         Sementara ini baru bisa mencetak double layer dengan via/through hole khusus untuk jumper/sambungan layer atas dan bawah (belum bisa untuk kaki komponen)
                                         <center><img src="images/double.png" class="img-fluid" alt=""></center>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary btn-md waves-effect waves-light" style="border-radius: 25px;" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>

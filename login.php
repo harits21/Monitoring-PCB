@@ -77,10 +77,10 @@ session_start();
 
                     <div class="flex-sb-m w-full p-t-3 p-b-32">
                         <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"><br>
+                            <!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"><br>
                             <label class="label-checkbox100" for="ckb1">
                                 Remember me
-                            </label>
+                            </label> -->
                             <div class="text-right">
                                 <a href="lupa_pass.php" class="">
                                     Lupa Password?
