@@ -75,7 +75,7 @@ if (!isset($_SESSION["user"])) {
             <a href="index.php" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Raftech-PCB</a>
             <div class="w3-dropdown-hover w3-hide-small w3-right">
 
-                <a href="logout.php" class="w3-bar-item w3-button w3-padding-large w3-theme-d4">LOGOUT</a>
+                <a href="logout.php?halaman=logout" class="w3-bar-item w3-button w3-padding-large w3-theme-d4">LOGOUT</a>
             </div>
 
 
@@ -109,13 +109,14 @@ if (!isset($_SESSION["user"])) {
             if (isset($_GET['halaman'])) {
                 if ($_GET['halaman'] == "logout")
                     include 'logout.php';
-            } elseif (isset($_GET['halaman'])) {
-                if ($_GET['halaman'] == "edit")
-                    include 'edit.php';
-            } elseif (isset($_GET['halaman'])) {
-                if ($_GET['halaman'] == "hapusproduk")
-                    include 'hapusproduk.php';
             }
+            // elseif (isset($_GET['halaman'])) {
+            //     if ($_GET['halaman'] == "edit")
+            //         include 'edit.php';
+            // } elseif (isset($_GET['halaman'])) {
+            //     if ($_GET['halaman'] == "hapusproduk")
+            //         include 'hapusproduk.php';
+            // }
             ?>
         </div>
     </div> -->

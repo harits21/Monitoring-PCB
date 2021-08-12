@@ -52,7 +52,7 @@ session_start();
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="No.Telp Harus Diisi">
-                        <input class="input100" type="number" name="no_telp" required>
+                        <input class="input100" type="number" name="no_telp" min="0" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">No Telpon</span>
                     </div>
