@@ -87,6 +87,8 @@ session_start();
                             $koneksi->query("INSERT INTO user (`id_user`, `nama_user`, `email_user`, `no_telp`, `password`, `token_ganti_password`) VALUES (NULL, NULL, NULL, NULL, '$_POST[password]', '');");
                             $koneksi->query("UPDATE user SET token_ganti_password = '', password = '$password' where email_user = '$email' ");
                             $sukses = "<div class= 'alert alert-info'>Password Sukses Diganti. Silahkan Login</div>";
+
+
                             // echo "<script>alert('Password Sukses Diganti. Silahkan Login');</script>";
                             // echo "<script>location='login.php';</script>";
 
