@@ -62,7 +62,7 @@ session_start();
 
                     <?php
                     if (isset($_POST['login'])) {
-                        $ambil = $koneksi->query("SELECT * FROM user WHERE email='$_POST[email]' AND password ='$_POST[pass]' ");
+                        $ambil = $koneksi->query("SELECT * FROM user WHERE email_user='$_POST[email]' AND password ='$_POST[pass]' ");
                         $cocok = $ambil->num_rows;
                         if ($cocok == 1) {
                             $_SESSION['user'] = $ambil->fetch_assoc();
@@ -77,10 +77,10 @@ session_start();
 
                     <div class="flex-sb-m w-full p-t-3 p-b-32">
                         <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"><br>
+                            <!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"><br>
                             <label class="label-checkbox100" for="ckb1">
                                 Remember me
-                            </label>
+                            </label> -->
                             <div class="text-right">
                                 <a href="lupa_pass.php" class="">
                                     Lupa Password?
@@ -90,13 +90,11 @@ session_start();
                         <br>
                     </div>
 
-
                     <div class="container-login100-form-btn">
                         <button class="login100-form-btn" style=" background-color: #5091f4;" type="submit" value="login" name="login">
                             Login
                         </button>
                     </div>
-
 
                     <br>
                     <div class="text-center p-t-46 p-b-20">
@@ -118,7 +116,22 @@ session_start();
     </div>
 
 
-
+    <!-- <div id="page-wrapper">
+        <div id="page-inner">
+            <?php
+            if (isset($_GET['halaman'])) {
+                if ($_GET['halaman'] == "lupas")
+                    include 'lupa_pass.php';
+            } elseif (isset($_GET['halaman'])) {
+                if ($_GET['halaman'] == "registrasi")
+                    include 'registrasi.php';
+            } elseif (isset($_GET['halaman'])) {
+                if ($_GET['halaman'] == "index")
+                    include 'index.php';
+            }
+            ?>
+        </div>
+    </div> -->
 
 
     <!--===============================================================================================-->
