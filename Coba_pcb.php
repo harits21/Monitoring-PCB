@@ -123,7 +123,7 @@ include 'config.php';
                             }).success(function(data) {
                                 var json = data,
                                     obj = JSON.parse(json);
-                                $('#spec').val(obj.spec);
+                                $('#spec').val(obj.spec_pcb);
                                 $('#jumlah').val(obj.jumlah);
                             });
                         }
