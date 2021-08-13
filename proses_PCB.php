@@ -26,78 +26,55 @@ include 'koneksi.php';
     <div class="row">
         <div class="col-8">
             <h2 class="my-3">Proses Pembuatan PCB</h2>
-            <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
+            <form action="" method="post" class="aksi">
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">No Invoice</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example" name="invoice">
+                        <select class="form-select" aria-label="Default select example" id="id_in" name="id_in" onchange="cek_db()">
                             <option disabled selected>--Pilih No Invoice--</option>
                             <?php
-                            $sql = "select no_invoice,nama_customer from order_masuk";
-                            $hasil = mysqli_query($koneksi, $sql);
-                            $no = 0;
-                            while ($data = mysqli_fetch_array($hasil)) {
-                                $no++;
-                                $ket = "";
-                                if (isset($_GET['invoice'])) {
-                                    $invoice = trim($_GET['invoice']);
-
-                                    if ($invoice == $data['no_invoice']) {
-                                        $ket = "selected";
-                                    }
-                                }
+                            include 'koneksi.php';
+                            $invoice = mysqli_query($koneksi, "SELECT * FROM order_masuk");
+                            while ($row = mysqli_fetch_array($invoice)) {
+                                echo "<option value='$row[no_invoice]'>$row[no_invoice]</option>";
+                            }
                             ?>
-                                <option <?php echo $ket; ?> value="<?php echo $data['no_invoice']; ?>"><?php echo $data['no_invoice']; ?> - <?php echo $data['nama_customer']; ?></option>
-                            <?php } ?>
                         </select>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="" class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-10">
-                        <input type="submit" class="btn btn-info" value="Pilih">
-                    </div>
-
-                    <?php
-                    if (isset($_GET['invoice'])) {
-                        $spek = $_GET["invoice"];
-
-                        $sql = "SELECT * FROM order_masuk WHERE no_invoice= '$invoice' ";
-                        $hasil = mysqli_query($koneksi, $sql);
-                        $data = mysqli_fetch_assoc($hasil);
-                    }
-
-                    ?>
-
                 </div>
                 <div class="row mb-3 ">
                     <label for="" class="col-sm-2 col-form-label">Spec PCB</label>
                     <div class="col-sm-10">
-                        <input type="text" name="spec" class="form-control" value="<?php echo $data['spec_pcb']; ?>">
+                        <input type="text" id="spec" class="form-control" readonly>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Jumlah</label>
                     <div class="col-sm-10">
-                        <input type="number" name="jumlah" class="form-control" value="<?php echo $data['jumlah']; ?>">
+                        <input type="number" id="jumlah" class="form-control" readonly>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Nama Karyawan</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>--Pilih Karyawan--</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" aria-label="Default select example" id="id_karyawan" name="id_karyawan">
+                            <option disabled selected>--Pilih Karyawan--</option>
+                            <?php
+                            $karyawan = mysqli_query($koneksi, "SELECT * FROM karyawan");
+                            while ($row = mysqli_fetch_array($karyawan)) {
+                                echo "<option value='$row[id_karyawan]'>$row[nama_karyawan]</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Order Verified</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date" name="date" class="form-control">
+                        <input hidden type="text" id="date2" name="date2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_order()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_order()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -185,6 +162,8 @@ include 'koneksi.php';
                     </div>
                 </div>
             </form>
+
+
         </div>
     </div>
 </div>
