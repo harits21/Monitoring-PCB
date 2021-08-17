@@ -80,85 +80,109 @@ include 'koneksi.php';
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Potong PCB</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_p" name="date_p" class="form-control">
+                        <input hidden type="text" id="date_potong2" name="date_potong2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_potong()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_potong()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Cetak Jalur bawah</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_ctkb" name="date_ctkb" class="form-control">
+                        <input hidden type="text" id="date_ctkb2" name="date_ctkb2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_ctkb()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_ctkb()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Cetak jalur Atas</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_ctka" name="date_ctka" class="form-control">
+                        <input hidden type="text" id="date_ctka2" name="date_ctka2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_ctka()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_ctka()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Masking Bawah</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_mb" name="date_mb" class="form-control">
+                        <input hidden type="text" id="date_mb2" name="date_mb2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_mb()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_mb()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Masking Atas</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_ma" name="date_ma" class="form-control">
+                        <input hidden type="text" id="date_ma2" name="date_ma2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_ma()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_ma()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Silkscreen Bawah</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_sb" name="date_sb" class="form-control">
+                        <input hidden type="text" id="date_sb2" name="date_sb2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_sb()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_sb()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Silkscreen Atas</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_sa" name="date_sa" class="form-control">
+                        <input hidden type="text" id="date_sa2" name="date_sa2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_sa()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_sa()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Bor</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_bor" name="date_bor" class="form-control">
+                        <input hidden type="text" id="date_bor2" name="date_bor2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_bor()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_bor()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Plating</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_plat" name="date_plat" class="form-control">
+                        <input hidden type="text" id="date_plat2" name="date_plat2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_plat()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_plat()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Finishing</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_fi" name="date_fi" class="form-control">
+                        <input hidden type="text" id="date_fi2" name="date_fi2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_fi()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_fi()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Quality Control</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_qc" name="date_qc" class="form-control">
+                        <input hidden type="text" id="date_qc2" name="date_qc2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_qc()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_qc()" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Packing</label>
                     <div class="col-sm-10">
-                        <a href="" class="btn btn-primary">Start</a>
-                        <a href="" class="btn btn-success">Stop</a>
+                        <input hidden type="text" id="date_pack" name="date_pack" class="form-control">
+                        <input hidden type="text" id="date_pack2" name="date_pack2" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_pack()" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_pack()" value="Stop">
                     </div>
                 </div>
             </form>
