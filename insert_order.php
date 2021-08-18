@@ -27,6 +27,20 @@ include 'koneksi.php';
             <h2 class="my-3">Form Insert Order</h2>
             <form action="" method="POST">
                 <div class="row mb-3">
+                    <label for="" class="col-sm-2 col-form-label">Nama Karyawan</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" aria-label="Default select example" id="nama_karyawan" name="nama_karyawan">
+                            <option disabled selected>--Pilih Karyawan--</option>
+                            <?php
+                            $karyawan = mysqli_query($koneksi, "SELECT * FROM karyawan");
+                            while ($row = mysqli_fetch_array($karyawan)) {
+                                echo "<option value='$row[nama_karyawan]'>$row[nama_karyawan]</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">No Invoice</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="invoice" name="invoice" autofocus>
@@ -55,7 +69,7 @@ include 'koneksi.php';
 
             <?php
             if (isset($_POST['insert'])) {
-                $koneksi->query("INSERT INTO order_masuk (no_invoice, nama_customer, spec_pcb, jumlah) VALUES ('$_POST[invoice]', '$_POST[nama_cust]', '$_POST[spec]', '$_POST[jumlah]')");
+                $koneksi->query("INSERT INTO order_masuk (no_invoice, nama_customer, spec_pcb, jumlah, nama_karyawan) VALUES ('$_POST[invoice]', '$_POST[nama_cust]', '$_POST[spec]', '$_POST[jumlah]', '$_POST[nama_karyawan]')");
                 echo "<div class='alert alert-info'>Data Tersimpan</div>";
                 echo "<meta http-equiv='refresh' content='1;url=insert_order.php'>";
             }

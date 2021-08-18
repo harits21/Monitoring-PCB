@@ -181,818 +181,802 @@ include 'koneksi.php';
                             Tabel Proses PCB
                         </div>
                         <div class="card-body">
-                            <button class="accordion1">Order Verified - Cetak Jalur Bawah</button>
+                            <button class="accordion1">Order Verified</button>
                             <div class="panel">
-                                <table class="table table-bordered">
-                                    <br>
-                                    <thead>
-                                        <tr>
-                                            <td>
-                                                <center><strong>No.</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Nama</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>No.Invoice</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Spec PCB</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Jumlah</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Order Verfied</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Potong PCB</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Cetak Jalur Bawah</strong></center>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                        </tr>
-
-                                        <?php
-                                        $nomor = 1;
-                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, order_verified, potong_pcb, ctk_jalur_bawah WHERE order_verified.no_invoice = order_masuk.no_invoice AND potong_pcb.no_invoice = order_masuk.no_invoice AND ctk_jalur_bawah.no_invoice = order_masuk.no_invoice");
-                                        while ($data = $ambil->fetch_assoc()) {
-
-                                        ?>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
                                             <tr>
-                                                <td><?php echo $nomor; ?></td>
-                                                <td><?php echo $data['nama_customer']; ?></td>
-                                                <td><?php echo $data['no_invoice']; ?></td>
-                                                <td><?php echo $data['spec_pcb']; ?></td>
-                                                <td><?php echo $data['jumlah']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_verif']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_verif']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %m Menit %s Detik'); ?></td>
-                                                <td><?php echo $data['nama_karyawanV']; ?></td>
-                                                <td><?php echo $date3 = $data['start_potong']; ?></td>
-                                                <td><?php echo $date4 = $data['stop_potong']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['nama_karyawanP']; ?></td>
-                                                <td><?php echo $data['start_ctk_bawah']; ?></td>
-                                                <td><?php echo $data['stop_ctk_bawah']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['nama_karyawanCB']; ?></td>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Order Verfied</strong></center>
+                                                </td>
                                             </tr>
-                                        <?php
-                                            $nomor++;
-                                        }
-                                        ?>
-                                </table>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, order_verified WHERE order_verified.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 =  $data['start_verif']; ?></td>
+                                                    <td><?php echo $date2 =  $data['stop_verif']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                    <td><?php echo $data['nama_karyawanV']; ?></td>
+                                                </tr>
+                                            <?php
+                                                $nomor++;
+                                            }
+                                            ?>
+                                    </table>
+                                </div>
                             </div>
 
-                            <button class="accordion1">Cetak Jalur Atas - Masking Atas</button>
+                            <button class="accordion1">Potong PCB</button>
                             <div class="panel">
-                                <table class="table table-bordered">
-                                    <br>
-                                    <thead>
-                                        <tr>
-                                            <td>
-                                                <center><strong>No.</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Nama</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>No.Invoice</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Spec PCB</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Jumlah</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Cetak Jalur Atas</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Masking Bawah</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Masking Atas</strong></center>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                        </tr>
-
-                                        <?php
-                                        $nomor = 1;
-                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, ctk_jalur_atas, masking_bawah, masking_atas WHERE ctk_jalur_atas.no_invoice = order_masuk.no_invoice
-                                        AND masking_bawah.no_invoice = order_masuk.no_invoice AND masking_atas.no_invoice = order_masuk.no_invoice");
-                                        while ($data = $ambil->fetch_assoc()) {
-                                        ?>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
                                             <tr>
-                                                <td><?php echo $nomor; ?></td>
-                                                <td><?php echo $data['nama_customer']; ?></td>
-                                                <td><?php echo $data['no_invoice']; ?></td>
-                                                <td><?php echo $data['spec_pcb']; ?></td>
-                                                <td><?php echo $data['jumlah']; ?></td>
-                                                <td><?php echo $data['start_ctk_atas']; ?></td>
-                                                <td><?php echo $data['stop_ctk_atas']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['nama_karyawanCA'] ?></td>
-                                                <td><?php echo $data['start_masking_bawah']; ?></td>
-                                                <td><?php echo $data['stop_masking_bawah']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['nama_karyawanMB']; ?></td>
-                                                <td><?php echo $data['start_masking_atas']; ?></td>
-                                                <td><?php echo $data['stop_masking_atas']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['nama_karyawanMA'] ?></td>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Potong PCB</strong></center>
+                                                </td>
                                             </tr>
-                                        <?php $nomor++;
-                                        }
-                                        ?>
-                                </table>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, potong_pcb WHERE potong_pcb.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 =  $data['start_potong']; ?></td>
+                                                    <td><?php echo $date2 =  $data['stop_potong']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                    <td><?php echo $data['nama_karyawanP']; ?></td>
+                                                </tr>
+                                            <?php
+                                                $nomor++;
+                                            }
+                                            ?>
+                                    </table>
+                                </div>
                             </div>
 
-                            <button class="accordion1">Silkscreen Bawah - Bor</button>
+                            <button class="accordion1">Cetak Jalur Bawah</button>
                             <div class="panel">
-                                <table class="table table-bordered">
-                                    <br>
-                                    <thead>
-                                        <tr>
-                                            <td>
-                                                <center><strong>No.</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Nama</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>No.Invoice</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Spec PCB</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Jumlah</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Silkscreen Bawah</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Silkscreen Atas</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Bor</strong></center>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                        </tr>
-                                        <?php
-                                        $nomor = 1;
-                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, silkscreen_bawah, silkscreen_atas, bor WHERE silkscreen_bawah.no_invoice = order_masuk.no_invoice
-                                        AND silkscreen_atas.no_invoice = order_masuk.no_invoice AND bor.no_invoice = order_masuk.no_invoice");
-                                        while ($data = $ambil->fetch_assoc()) {
-                                        ?>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
                                             <tr>
-                                                <td><?php echo $nomor; ?></td>
-                                                <td><?php echo $data['nama_customer']; ?></td>
-                                                <td><?php echo $data['no_invoice']; ?></td>
-                                                <td><?php echo $data['spec_pcb']; ?></td>
-                                                <td><?php echo $data['jumlah']; ?></td>
-                                                <td><?php echo $data['start_silk_bawah']; ?></td>
-                                                <td><?php echo $data['stop_silk_bawah']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['id_karyawanSB']; ?></td>
-                                                <td><?php echo $data['start_silk_atas']; ?></td>
-                                                <td><?php echo $data['stop_silk_atas']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['id_karyawanSA']; ?></td>
-                                                <td><?php echo $data['start_bor']; ?></td>
-                                                <td><?php echo $data['stop_bor']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['id_karyawanB']; ?></td>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Cetak Jalur Bawah</strong></center>
+                                                </td>
                                             </tr>
-                                        <?php $nomor++;
-                                        } ?>
-                                </table>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, ctk_jalur_bawah WHERE ctk_jalur_bawah.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 =  $data['start_ctk_bawah']; ?></td>
+                                                    <td><?php echo $date2 =  $data['stop_ctk_bawah']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                    <td><?php echo $data['nama_karyawanCB']; ?></td>
+                                                </tr>
+                                            <?php
+                                                $nomor++;
+                                            }
+                                            ?>
+                                    </table>
+                                </div>
                             </div>
 
-                            <button class="accordion1">Plating - Packing</button>
+                            <button class="accordion1">Cetak Jalur Atas</button>
                             <div class="panel">
-                                <table class="table table-bordered">
-                                    <br>
-                                    <thead>
-                                        <tr>
-                                            <td>
-                                                <center><strong>No.</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Nama</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>No.Invoice</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Spec PCB</strong></center>
-                                            </td>
-                                            <td>
-                                                <center><strong>Jumlah</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Plating</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Finishing</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>QC</strong></center>
-                                            </td>
-                                            <td colspan="4">
-                                                <center><strong>Packing</strong></center>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="5"></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                            <td><strong>Start</strong> </td>
-                                            <td><strong>Stop</strong></td>
-                                            <td><strong>Durasi</strong></td>
-                                            <td><strong>PIC</strong></td>
-                                        </tr>
-                                        <?php
-                                        $nomor = 1;
-                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, plating, finishing, qc, packing WHERE plating.no_invoice = order_masuk.no_invoice
-                                        AND finishing.no_invoice = order_masuk.no_invoice AND qc.no_invoice = order_masuk.no_invoice AND packing.no_invoice = order_masuk.no_invoice");
-                                        while ($data = $ambil->fetch_assoc()) {
-                                        ?>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
                                             <tr>
-                                                <td><?php echo $nomor; ?></td>
-                                                <td><?php echo $data['nama_customer']; ?></td>
-                                                <td><?php echo $data['no_invoice']; ?></td>
-                                                <td><?php echo $data['spec_pcb']; ?></td>
-                                                <td><?php echo $data['jumlah']; ?></td>
-                                                <td><?php echo $data['start_plating']; ?></td>
-                                                <td><?php echo $data['stop_plating']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['id_karyawanPLT']; ?></td>
-                                                <td><?php echo $data['start_finishing']; ?></td>
-                                                <td><?php echo $data['stop_finishing']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['id_karyawanF']; ?></td>
-                                                <td><?php echo $data['start_qc']; ?></td>
-                                                <td><?php echo $data['stop_qc']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['id_karyawanQC']; ?></td>
-                                                <td><?php echo $data['start_packing']; ?></td>
-                                                <td><?php echo $data['stop_packing']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['id_karyawanPCK']; ?></td>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Cetak Jalur Atas</strong></center>
+                                                </td>
                                             </tr>
-                                        <?php $nomor++;
-                                        } ?>
-                                </table>
-                            </div>
-                        </div>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
 
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, ctk_jalur_atas WHERE ctk_jalur_atas.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_ctk_atas']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_ctk_atas']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanCA'] ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            }
+                                            ?>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya Frost</td>
-                                            <td>Software Engineer</td>
-                                            <td>Edinburgh</td>
-                                            <td>23</td>
-                                            <td>2008/12/13</td>
-                                            <td>$103,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jena Gaines</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>30</td>
-                                            <td>2008/12/19</td>
-                                            <td>$90,560</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Quinn Flynn</td>
-                                            <td>Support Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2013/03/03</td>
-                                            <td>$342,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Charde Marshall</td>
-                                            <td>Regional Director</td>
-                                            <td>San Francisco</td>
-                                            <td>36</td>
-                                            <td>2008/10/16</td>
-                                            <td>$470,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Haley Kennedy</td>
-                                            <td>Senior Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>43</td>
-                                            <td>2012/12/18</td>
-                                            <td>$313,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tatyana Fitzpatrick</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>19</td>
-                                            <td>2010/03/17</td>
-                                            <td>$385,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paul Byrd</td>
-                                            <td>Chief Financial Officer (CFO)</td>
-                                            <td>New York</td>
-                                            <td>64</td>
-                                            <td>2010/06/09</td>
-                                            <td>$725,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gloria Little</td>
-                                            <td>Systems Administrator</td>
-                                            <td>New York</td>
-                                            <td>59</td>
-                                            <td>2009/04/10</td>
-                                            <td>$237,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13</td>
-                                            <td>$132,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dai Rios</td>
-                                            <td>Personnel Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>35</td>
-                                            <td>2012/09/26</td>
-                                            <td>$217,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jenette Caldwell</td>
-                                            <td>Development Lead</td>
-                                            <td>New York</td>
-                                            <td>30</td>
-                                            <td>2011/09/03</td>
-                                            <td>$345,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Yuri Berry</td>
-                                            <td>Chief Marketing Officer (CMO)</td>
-                                            <td>New York</td>
-                                            <td>40</td>
-                                            <td>2009/06/25</td>
-                                            <td>$675,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Caesar Vance</td>
-                                            <td>Pre-Sales Support</td>
-                                            <td>New York</td>
-                                            <td>21</td>
-                                            <td>2011/12/12</td>
-                                            <td>$106,450</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Doris Wilder</td>
-                                            <td>Sales Assistant</td>
-                                            <td>Sidney</td>
-                                            <td>23</td>
-                                            <td>2010/09/20</td>
-                                            <td>$85,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09</td>
-                                            <td>$1,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Joyce</td>
-                                            <td>Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>42</td>
-                                            <td>2010/12/22</td>
-                                            <td>$92,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Chang</td>
-                                            <td>Regional Director</td>
-                                            <td>Singapore</td>
-                                            <td>28</td>
-                                            <td>2010/11/14</td>
-                                            <td>$357,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07</td>
-                                            <td>$206,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fiona Green</td>
-                                            <td>Chief Operating Officer (COO)</td>
-                                            <td>San Francisco</td>
-                                            <td>48</td>
-                                            <td>2010/03/11</td>
-                                            <td>$850,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shou Itou</td>
-                                            <td>Regional Marketing</td>
-                                            <td>Tokyo</td>
-                                            <td>20</td>
-                                            <td>2011/08/14</td>
-                                            <td>$163,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michelle House</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Sidney</td>
-                                            <td>37</td>
-                                            <td>2011/06/02</td>
-                                            <td>$95,400</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Suki Burks</td>
-                                            <td>Developer</td>
-                                            <td>London</td>
-                                            <td>53</td>
-                                            <td>2009/10/22</td>
-                                            <td>$114,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Prescott Bartlett</td>
-                                            <td>Technical Author</td>
-                                            <td>London</td>
-                                            <td>27</td>
-                                            <td>2011/05/07</td>
-                                            <td>$145,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Cortez</td>
-                                            <td>Team Leader</td>
-                                            <td>San Francisco</td>
-                                            <td>22</td>
-                                            <td>2008/10/26</td>
-                                            <td>$235,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Martena Mccray</td>
-                                            <td>Post-Sales support</td>
-                                            <td>Edinburgh</td>
-                                            <td>46</td>
-                                            <td>2011/03/09</td>
-                                            <td>$324,050</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/12/09</td>
-                                            <td>$85,675</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Howard Hatfield</td>
-                                            <td>Office Manager</td>
-                                            <td>San Francisco</td>
-                                            <td>51</td>
-                                            <td>2008/12/16</td>
-                                            <td>$164,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hope Fuentes</td>
-                                            <td>Secretary</td>
-                                            <td>San Francisco</td>
-                                            <td>41</td>
-                                            <td>2010/02/12</td>
-                                            <td>$109,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vivian Harrell</td>
-                                            <td>Financial Controller</td>
-                                            <td>San Francisco</td>
-                                            <td>62</td>
-                                            <td>2009/02/14</td>
-                                            <td>$452,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Support Engineer</td>
-                                            <td>Tokyo</td>
-                                            <td>37</td>
-                                            <td>2009/08/19</td>
-                                            <td>$139,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thor Walton</td>
-                                            <td>Developer</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2013/08/11</td>
-                                            <td>$98,540</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Finn Camacho</td>
-                                            <td>Support Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/07/07</td>
-                                            <td>$87,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Serge Baldwin</td>
-                                            <td>Data Coordinator</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2012/04/09</td>
-                                            <td>$138,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zenaida Frank</td>
-                                            <td>Software Engineer</td>
-                                            <td>New York</td>
-                                            <td>63</td>
-                                            <td>2010/01/04</td>
-                                            <td>$125,250</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zorita Serrano</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>56</td>
-                                            <td>2012/06/01</td>
-                                            <td>$115,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Acosta</td>
-                                            <td>Junior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>43</td>
-                                            <td>2013/02/01</td>
-                                            <td>$75,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cara Stevens</td>
-                                            <td>Sales Assistant</td>
-                                            <td>New York</td>
-                                            <td>46</td>
-                                            <td>2011/12/06</td>
-                                            <td>$145,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hermione Butler</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2011/03/21</td>
-                                            <td>$356,250</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lael Greer</td>
-                                            <td>Systems Administrator</td>
-                                            <td>London</td>
-                                            <td>21</td>
-                                            <td>2009/02/27</td>
-                                            <td>$103,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jonas Alexander</td>
-                                            <td>Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>30</td>
-                                            <td>2010/07/14</td>
-                                            <td>$86,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shad Decker</td>
-                                            <td>Regional Director</td>
-                                            <td>Edinburgh</td>
-                                            <td>51</td>
-                                            <td>2008/11/13</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Bruce</td>
-                                            <td>Javascript Developer</td>
-                                            <td>Singapore</td>
-                                            <td>29</td>
-                                            <td>2011/06/27</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>$112,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+
+                            <button class="accordion1">Masking Bawah</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Masking Bawah</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, masking_bawah WHERE masking_bawah.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_masking_bawah']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_masking_bawah']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanMB'] ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            }
+                                            ?>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="accordion1">Masking Atas</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Masking Atas</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, masking_atas WHERE masking_atas.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_masking_atas']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_masking_atas']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanMA'] ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            }
+                                            ?>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="accordion1">Silkscreen Bawah</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Silkscreen Bawah</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, silkscreen_bawah WHERE silkscreen_bawah.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $dateSB = $data['start_silk_bawah']; ?></td>
+                                                    <td><?php echo $dateSB2 = $data['stop_silk_bawah']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($dateSB);
+                                                    $datetime2 = new DateTime($dateSB2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanSB']; ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            } ?>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="accordion1">Silkscreen Atas</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Silkscreen Atas</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, silkscreen_atas WHERE silkscreen_atas.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_silk_atas']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_silk_atas']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanSA']; ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            } ?>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="accordion1">Bor</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Silkscreen Atas</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, bor WHERE bor.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_bor']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_bor']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanB']; ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            } ?>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="accordion1">Plating</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Plating</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong> </td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, plating WHERE plating.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_plating']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_plating']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanPLT']; ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            } ?>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="accordion1">Finishing</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Finishing</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong></td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, finishing WHERE finishing.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_finishing']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_finishing']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanF']; ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            } ?>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="accordion1">Quality Control</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Quality Control</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong></td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, qc WHERE qc.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_qc']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_qc']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanQC']; ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            } ?>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="accordion1">Packing</button>
+                            <div class="panel">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <br>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <center><strong>No.</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Nama</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>No.Invoice</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Spec PCB</strong></center>
+                                                </td>
+                                                <td>
+                                                    <center><strong>Jumlah</strong></center>
+                                                </td>
+                                                <td colspan="4">
+                                                    <center><strong>Packing</strong></center>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td><strong>Start</strong></td>
+                                                <td><strong>Stop</strong></td>
+                                                <td><strong>Durasi</strong></td>
+                                                <td><strong>PIC</strong></td>
+                                            </tr>
+                                            <?php
+                                            $nomor = 1;
+                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, packing WHERE packing.no_invoice = order_masuk.no_invoice");
+                                            while ($data = $ambil->fetch_assoc()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $nomor; ?></td>
+                                                    <td><?php echo $data['nama_customer']; ?></td>
+                                                    <td><?php echo $data['no_invoice']; ?></td>
+                                                    <td><?php echo $data['spec_pcb']; ?></td>
+                                                    <td><?php echo $data['jumlah']; ?></td>
+                                                    <td><?php echo $date1 = $data['start_packing']; ?></td>
+                                                    <td><?php echo $date2 = $data['stop_packing']; ?></td>
+                                                    <?php
+                                                    $datetime1 = new DateTime($date1);
+                                                    $datetime2 = new DateTime($date2);
+                                                    $interfal = $datetime1->diff($datetime2);
+                                                    ?>
+                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
+                                                    <td><?php echo $data['nama_karyawanPCK']; ?></td>
+                                                </tr>
+                                            <?php $nomor++;
+                                            } ?>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
