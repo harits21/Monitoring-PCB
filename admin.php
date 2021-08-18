@@ -1,5 +1,6 @@
 <?php
 include '_templateAdmin.php';
+include 'koneksi.php';
 ?>
 
 <style>
@@ -172,34 +173,15 @@ include '_templateAdmin.php';
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-area me-1"></i>
-                                    Area Chart Example
-                                </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-bar me-1"></i>
-                                    Bar Chart Example
-                                </div>
-                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                            </div>
-                        </div>
-                    </div>
 
+                    <!-- Tabel proses PCB -->
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Tabel Proses PCB
                         </div>
                         <div class="card-body">
-                            <button class="accordion1">Section 1</button>
+                            <button class="accordion1">Order Verified - Cetak Jalur Bawah</button>
                             <div class="panel">
                                 <table class="table table-bordered">
                                     <br>
@@ -245,29 +227,40 @@ include '_templateAdmin.php';
                                             <td><strong>Durasi</strong></td>
                                             <td><strong>PIC</strong></td>
                                         </tr>
-                                        <tr>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                        </tr>
+
+                                        <?php
+                                        $nomor = 1;
+                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, order_verified, potong_pcb, ctk_jalur_bawah WHERE order_verified.no_invoice = order_masuk.no_invoice
+                                        AND potong_pcb.no_invoice = order_masuk.no_invoice AND ctk_jalur_bawah.no_invoice = order_masuk.no_invoice");
+                                        while ($data = $ambil->fetch_assoc()) {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $nomor; ?></td>
+                                                <td><?php echo $data['nama_customer']; ?></td>
+                                                <td><?php echo $data['no_invoice']; ?></td>
+                                                <td><?php echo $data['spec_pcb']; ?></td>
+                                                <td><?php echo $data['jumlah']; ?></td>
+                                                <td><?php echo $data['start_verif']; ?></td>
+                                                <td><?php echo $data['stop_verif']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanV']; ?></td>
+                                                <td><?php echo $data['start_potong']; ?></td>
+                                                <td><?php echo $data['stop_potong']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanP']; ?></td>
+                                                <td><?php echo $data['start_ctk_bawah']; ?></td>
+                                                <td><?php echo $data['stop_ctk_bawah']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanCB']; ?></td>
+                                            </tr>
+                                        <?php
+                                            $nomor++;
+                                        }
+                                        ?>
                                 </table>
                             </div>
 
-                            <button class="accordion1">Section 2</button>
+                            <button class="accordion1">Cetak Jalur Atas - Masking Atas</button>
                             <div class="panel">
                                 <table class="table table-bordered">
                                     <br>
@@ -312,30 +305,40 @@ include '_templateAdmin.php';
                                             <td><strong>Stop</strong></td>
                                             <td><strong>Durasi</strong></td>
                                             <td><strong>PIC</strong></td>
+                                        </tr>
 
-                                        </tr>
-                                        <tr>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                        </tr>
+                                        <?php
+                                        $nomor = 1;
+                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, ctk_jalur_atas, masking_bawah, masking_atas WHERE ctk_jalur_atas.no_invoice = order_masuk.no_invoice
+                                        AND masking_bawah.no_invoice = order_masuk.no_invoice AND masking_atas.no_invoice = order_masuk.no_invoice");
+                                        while ($data = $ambil->fetch_assoc()) {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $nomor; ?></td>
+                                                <td><?php echo $data['nama_customer']; ?></td>
+                                                <td><?php echo $data['no_invoice']; ?></td>
+                                                <td><?php echo $data['spec_pcb']; ?></td>
+                                                <td><?php echo $data['jumlah']; ?></td>
+                                                <td><?php echo $data['start_ctk_atas']; ?></td>
+                                                <td><?php echo $data['stop_ctk_atas']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanCA'] ?></td>
+                                                <td><?php echo $data['start_masking_bawah']; ?></td>
+                                                <td><?php echo $data['stop_masking_bawah']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanMB']; ?></td>
+                                                <td><?php echo $data['start_masking_atas']; ?></td>
+                                                <td><?php echo $data['stop_masking_atas']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanMA'] ?></td>
+                                            </tr>
+                                        <?php $nomor++;
+                                        }
+                                        ?>
                                 </table>
                             </div>
-                            <button class="accordion1">Section 3</button>
+
+                            <button class="accordion1">Silkscreen Bawah - Bor</button>
                             <div class="panel">
                                 <table class="table table-bordered">
                                     <br>
@@ -381,28 +384,37 @@ include '_templateAdmin.php';
                                             <td><strong>Durasi</strong></td>
                                             <td><strong>PIC</strong></td>
                                         </tr>
-                                        <tr>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                        </tr>
+                                        <?php
+                                        $nomor = 1;
+                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, silkscreen_bawah, silkscreen_atas, bor WHERE silkscreen_bawah.no_invoice = order_masuk.no_invoice
+                                        AND silkscreen_atas.no_invoice = order_masuk.no_invoice AND bor.no_invoice = order_masuk.no_invoice");
+                                        while ($data = $ambil->fetch_assoc()) {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $nomor; ?></td>
+                                                <td><?php echo $data['nama_customer']; ?></td>
+                                                <td><?php echo $data['no_invoice']; ?></td>
+                                                <td><?php echo $data['spec_pcb']; ?></td>
+                                                <td><?php echo $data['jumlah']; ?></td>
+                                                <td><?php echo $data['start_silk_bawah']; ?></td>
+                                                <td><?php echo $data['stop_silk_bawah']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanSB']; ?></td>
+                                                <td><?php echo $data['start_silk_atas']; ?></td>
+                                                <td><?php echo $data['stop_silk_atas']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanSA']; ?></td>
+                                                <td><?php echo $data['start_bor']; ?></td>
+                                                <td><?php echo $data['stop_bor']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanB']; ?></td>
+                                            </tr>
+                                        <?php $nomor++;
+                                        } ?>
                                 </table>
                             </div>
-                            <button class="accordion1">Section 4</button>
+
+                            <button class="accordion1">Plating - Packing</button>
                             <div class="panel">
                                 <table class="table table-bordered">
                                     <br>
@@ -455,29 +467,37 @@ include '_templateAdmin.php';
                                             <td><strong>Durasi</strong></td>
                                             <td><strong>PIC</strong></td>
                                         </tr>
-                                        <tr>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                            <td>X</td>
-                                        </tr>
+                                        <?php
+                                        $nomor = 1;
+                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, plating, finishing, qc, packing WHERE plating.no_invoice = order_masuk.no_invoice
+                                        AND finishing.no_invoice = order_masuk.no_invoice AND qc.no_invoice = order_masuk.no_invoice AND packing.no_invoice = order_masuk.no_invoice");
+                                        while ($data = $ambil->fetch_assoc()) {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $nomor; ?></td>
+                                                <td><?php echo $data['nama_customer']; ?></td>
+                                                <td><?php echo $data['no_invoice']; ?></td>
+                                                <td><?php echo $data['spec_pcb']; ?></td>
+                                                <td><?php echo $data['jumlah']; ?></td>
+                                                <td><?php echo $data['start_plating']; ?></td>
+                                                <td><?php echo $data['stop_plating']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanPLT']; ?></td>
+                                                <td><?php echo $data['start_finishing']; ?></td>
+                                                <td><?php echo $data['stop_finishing']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanF']; ?></td>
+                                                <td><?php echo $data['start_qc']; ?></td>
+                                                <td><?php echo $data['stop_qc']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanQC']; ?></td>
+                                                <td><?php echo $data['start_packing']; ?></td>
+                                                <td><?php echo $data['stop_packing']; ?></td>
+                                                <td>X</td>
+                                                <td><?php echo $data['id_karyawanPCK']; ?></td>
+                                            </tr>
+                                        <?php $nomor++;
+                                        } ?>
                                 </table>
                             </div>
                         </div>
