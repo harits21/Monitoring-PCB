@@ -112,7 +112,7 @@ session_start();
 
                     <br>
                     <div class="text-center p-t-46 p-b-20"><br><br><br>
-                        <a href="login.php"><strong>Kembali Ke Login</strong> </a>
+                        <a href="login_user.php"><strong>Kembali Ke Login</strong> </a>
                     </div>
 
 

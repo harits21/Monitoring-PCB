@@ -1,16 +1,13 @@
 <?php
 include 'koneksi.php';
-include_once("fungsi.php");
 session_start();
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Form Ganti Password</title>
+    <title>Form Registrasi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -42,107 +39,63 @@ session_start();
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" method="POST">
-                    <span class="login100-form-title p-b-43">
-                        Ganti Password
+                <form class="login100-form validate-form" method="post" role="form">
+                    <span class=" login100-form-title p-b-43">
+                        Registrasi
                     </span>
                     <br><br>
 
-                    <?php
-                    if (isset($_SESSION['email_user']) != '') {
-                        header("location:index.php");
-                        exit();
-                    }
+                    <div class="wrap-input100 validate-input" data-validate="Nama Harus Diisi">
+                        <input class="input100" type="text" name="nama" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Nama</span>
+                    </div>
 
-                    $err = "";
-                    $sukses = "";
+                    <div class="wrap-input100 validate-input" data-validate="No.Telp Harus Diisi">
+                        <input class="input100" type="number" name="no_telp" min="0" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">No Telpon</span>
+                    </div>
 
-                    $email = $_GET['email'];
-                    $token = $_GET['token'];
+                    <div class="wrap-input100 validate-input" data-validate="Email Harus Diisi">
+                        <input class="input100" type="text" name="email" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Email</span>
+                    </div>
 
-                    if ($token == '' or $email == '') {
-                        $err .= "<div class= 'alert alert-danger'>Link tidak valid. Email dan token tidak tersedia</a></div>";
-                    } else {
-                        $sql1 = " select * from user where email_user = '$email' and token_ganti_password = '$token'";
-                        $q1 = mysqli_query($koneksi, $sql1);
-                        $n1 = mysqli_num_rows($q1);
-
-                        //masih error
-                        if ($n1 < 0) {
-                            $err .= "<div class= 'alert alert-danger'>Link tidak valid. Email dan token tidak tersedia</a></div>";
-                        }
-                    }
-
-                    if (isset($_POST['submit'])) {
-                        $password = $_POST['password'];
-                        $konfirmasi_password = $_POST['konfirmasi_password'];
-
-                        if ($password == '' or $konfirmasi_password == '') {
-                            $err .= "<div class= 'alert alert-danger'>Silahkan Masukkan Password Serta Konfirmasi Password</a></div>";
-                        } elseif ($konfirmasi_password != $password) {
-                            $err .= "<div class= 'alert alert-danger'>Password tidak sesuai dengan Konfirmasi password</a></div>";
-                        }
-
-                        if (empty($err)) {
-                            $koneksi->query("INSERT INTO user (`id_user`, `nama_user`, `email_user`, `no_telp`, `password`, `token_ganti_password`) VALUES (NULL, NULL, NULL, NULL, '$_POST[password]', '');");
-                            $koneksi->query("UPDATE user SET token_ganti_password = '', password = '$password' where email_user = '$email' ");
-                            $sukses = "<div class= 'alert alert-info'>Password Sukses Diganti. Silahkan Login</div>";
-                            echo "<meta http-equiv= 'refresh' content='1;url=login_user.php'>";
-
-
-                            // echo "<script>alert('Password Sukses Diganti. Silahkan Login');</script>";
-                            // echo "<script>location='login.php';</script>";
-
-                            // $sql1 = "update user set token_ganti_password = '', password=md5($password) where email_user = '$email'";
-                            // mysqli_query($koneksi, $sql1);
-                            // $sukses = "<div class= 'alert alert-info'>Password Sukses Diganti. 
-                            // Silahkan <a href= '" . url_dasar() . "/login.php' >Login</a></div>";
-                        }
-                    }
-                    ?>
-
-                    <?php if ($err) {
-                        echo "<div class='error'>$err</div>";
-                    }
-                    ?>
-
-                    <?php if ($sukses) {
-                        echo "<div class='Sukses'>$sukses</div>";
-                    }
-                    ?>
-
-                    <div class="wrap-input100 validate-input" data-validate="Harus di isi">
-                        <input class="input100" type="password" name="password">
+                    <div class="wrap-input100 validate-input" data-validate="Password Harus Diisi">
+                        <input class="input100" type="password" name="pass" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Password</span>
                     </div>
-                    <br>
-                    <div class="wrap-input100 validate-input" data-validate="Harus di isi">
-                        <input class="input100" type="password" name="konfirmasi_password">
-                        <span class="focus-input100"></span>
-                        <span class="label-input100">Konfirmasi Password</span>
-                    </div>
+
                     <br>
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" style=" background-color: #5091f4;" type="submit" name="submit" value="Ganti Password">
+                        <button class="login100-form-btn" style=" background-color: #5091f4;" name="register">
                             Submit
                         </button>
                     </div>
+
+
                     <br>
-                    <div class="text-center p-t-46 p-b-20"><br><br><br>
-                        <a href="login_user.php"><strong>Kembali Ke Login</strong> </a>
+                    <div class="text-center p-t-46 p-b-20">
+                        <a href="login.php">Sudah Punya Akun ? <strong>Kembali ke Login</strong> </a>
                     </div>
-
-
                 </form>
+
+                <?php
+                if (isset($_POST['register'])) {
+                    $koneksi->query(" INSERT INTO `user` (`id_user`, `nama_user`, `email_user`, `no_telp`, `password`) VALUES ('', '$_POST[nama]','$_POST[email]','$_POST[no_telp]','$_POST[pass]' );");
+                    echo "<script>alert('Registrasi Berhasil, Silahkan Login');</script>";
+                    echo "<script>location='login.php';</script>";
+                }
+                ?>
 
                 <div class="login100-more" style="background-image: url('images/raftech.png');">
                 </div>
             </div>
         </div>
     </div>
-
-
 
 
 
