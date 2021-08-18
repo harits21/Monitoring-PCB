@@ -2,7 +2,7 @@
 include '_templateAdmin.php';
 include 'koneksi.php';
 ?>
-
+<!-- style table accordion -->
 <style>
     .accordion1 {
         background-color: #eee;
