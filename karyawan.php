@@ -41,7 +41,7 @@ include 'koneksi.php';
                 <tbody>
                     <?php
                     $nomor = 1;
-                    $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk");
+                    $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk ORDER BY date LIMIT 20");
                     while ($data = $ambil->fetch_assoc()) { ?>
                         <tr>
                             <td><?php echo $nomor; ?></td>

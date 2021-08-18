@@ -34,7 +34,7 @@ include 'koneksi.php';
                             <option disabled selected>--Pilih No Invoice--</option>
                             <?php
                             include 'koneksi.php';
-                            $invoice = mysqli_query($koneksi, "SELECT * FROM order_masuk");
+                            $invoice = mysqli_query($koneksi, "SELECT * FROM order_masuk ORDER BY date LIMIT 20");
                             while ($row = mysqli_fetch_array($invoice)) {
                                 echo "<option value='$row[no_invoice]'>$row[no_invoice]</option>";
                             }
@@ -57,12 +57,12 @@ include 'koneksi.php';
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Nama Karyawan</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example" id="id_karyawan" name="id_karyawan">
+                        <select class="form-select" aria-label="Default select example" id="nama_karyawan" name="nama_karyawan">
                             <option disabled selected>--Pilih Karyawan--</option>
                             <?php
                             $karyawan = mysqli_query($koneksi, "SELECT * FROM karyawan");
                             while ($row = mysqli_fetch_array($karyawan)) {
-                                echo "<option value='$row[id_karyawan]'>$row[nama_karyawan]</option>";
+                                echo "<option value='$row[nama_karyawan]'>$row[nama_karyawan]</option>";
                             }
                             ?>
                         </select>

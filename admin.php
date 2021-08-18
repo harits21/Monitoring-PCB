@@ -230,9 +230,9 @@ include 'koneksi.php';
 
                                         <?php
                                         $nomor = 1;
-                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, order_verified, potong_pcb, ctk_jalur_bawah WHERE order_verified.no_invoice = order_masuk.no_invoice
-                                        AND potong_pcb.no_invoice = order_masuk.no_invoice AND ctk_jalur_bawah.no_invoice = order_masuk.no_invoice");
+                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, order_verified, potong_pcb, ctk_jalur_bawah WHERE order_verified.no_invoice = order_masuk.no_invoice AND potong_pcb.no_invoice = order_masuk.no_invoice AND ctk_jalur_bawah.no_invoice = order_masuk.no_invoice");
                                         while ($data = $ambil->fetch_assoc()) {
+
                                         ?>
                                             <tr>
                                                 <td><?php echo $nomor; ?></td>
@@ -240,18 +240,23 @@ include 'koneksi.php';
                                                 <td><?php echo $data['no_invoice']; ?></td>
                                                 <td><?php echo $data['spec_pcb']; ?></td>
                                                 <td><?php echo $data['jumlah']; ?></td>
-                                                <td><?php echo $data['start_verif']; ?></td>
-                                                <td><?php echo $data['stop_verif']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_verif']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_verif']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %m Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanV']; ?></td>
+                                                <td><?php echo $date3 = $data['start_potong']; ?></td>
+                                                <td><?php echo $date4 = $data['stop_potong']; ?></td>
                                                 <td>X</td>
-                                                <td><?php echo $data['id_karyawanV']; ?></td>
-                                                <td><?php echo $data['start_potong']; ?></td>
-                                                <td><?php echo $data['stop_potong']; ?></td>
-                                                <td>X</td>
-                                                <td><?php echo $data['id_karyawanP']; ?></td>
+                                                <td><?php echo $data['nama_karyawanP']; ?></td>
                                                 <td><?php echo $data['start_ctk_bawah']; ?></td>
                                                 <td><?php echo $data['stop_ctk_bawah']; ?></td>
                                                 <td>X</td>
-                                                <td><?php echo $data['id_karyawanCB']; ?></td>
+                                                <td><?php echo $data['nama_karyawanCB']; ?></td>
                                             </tr>
                                         <?php
                                             $nomor++;
@@ -322,15 +327,15 @@ include 'koneksi.php';
                                                 <td><?php echo $data['start_ctk_atas']; ?></td>
                                                 <td><?php echo $data['stop_ctk_atas']; ?></td>
                                                 <td>X</td>
-                                                <td><?php echo $data['id_karyawanCA'] ?></td>
+                                                <td><?php echo $data['nama_karyawanCA'] ?></td>
                                                 <td><?php echo $data['start_masking_bawah']; ?></td>
                                                 <td><?php echo $data['stop_masking_bawah']; ?></td>
                                                 <td>X</td>
-                                                <td><?php echo $data['id_karyawanMB']; ?></td>
+                                                <td><?php echo $data['nama_karyawanMB']; ?></td>
                                                 <td><?php echo $data['start_masking_atas']; ?></td>
                                                 <td><?php echo $data['stop_masking_atas']; ?></td>
                                                 <td>X</td>
-                                                <td><?php echo $data['id_karyawanMA'] ?></td>
+                                                <td><?php echo $data['nama_karyawanMA'] ?></td>
                                             </tr>
                                         <?php $nomor++;
                                         }
