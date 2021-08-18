@@ -43,7 +43,7 @@ session_start();
 
                 <form class="login100-form validate-form" method="POST" role="form">
                     <span class="login100-form-title p-b-43">
-                        LOGIN
+                        LOGIN ADMIN
                     </span>
                     <br><br>
 
@@ -62,12 +62,12 @@ session_start();
 
                     <?php
                     if (isset($_POST['login'])) {
-                        $ambil = $koneksi->query("SELECT * FROM user WHERE email_user='$_POST[email]' AND password ='$_POST[pass]' ");
+                        $ambil = $koneksi->query("SELECT * FROM admin WHERE email='$_POST[email]' AND password ='$_POST[pass]' ");
                         $cocok = $ambil->num_rows;
                         if ($cocok == 1) {
-                            $_SESSION['user'] = $ambil->fetch_assoc();
+                            $_SESSION['admin'] = $ambil->fetch_assoc();
                             echo "<div class= 'alert alert-info'> Login Sukses </div>";
-                            echo "<meta http-equiv= 'refresh' content='1;url=tes.php'>";
+                            echo "<meta http-equiv= 'refresh' content='1;url=admin.php'>";
                         } else {
                             echo "<div class= 'alert alert-danger'> Login Gagal </div>";
                             echo "<meta http-equiv= 'refresh' content='1;url=login.php'>";
@@ -81,11 +81,11 @@ session_start();
                             <label class="label-checkbox100" for="ckb1">
                                 Remember me
                             </label> -->
-                            <div class="text-right">
+                            <!-- <div class="text-right">
                                 <a href="lupa_pass.php" class="">
                                     Lupa Password?
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                         <br>
                     </div>
@@ -95,6 +95,12 @@ session_start();
                             Login
                         </button>
                     </div>
+
+                    <br>
+                    <div class="text-center p-t-46 p-b-20">
+                        <a href="login_user.php">Login Sebagai <strong>User</strong></a>
+                    </div>
+
 
                     <br>
                     <div class="text-center p-t-46 p-b-20">

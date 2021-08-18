@@ -45,17 +45,12 @@ session_start();
                     </span>
                     <br><br>
 
-                    <div class="wrap-input100 validate-input" data-validate="Nama Harus Diisi">
-                        <input class="input100" type="text" name="nama" required>
+                    <div class="wrap-input100 validate-input" data-validate="Email Harus Diisi">
+                        <input class="input100" type="text" name="username" required>
                         <span class="focus-input100"></span>
-                        <span class="label-input100">Nama</span>
+                        <span class="label-input100">Username</span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="No.Telp Harus Diisi">
-                        <input class="input100" type="number" name="no_telp" min="0" required>
-                        <span class="focus-input100"></span>
-                        <span class="label-input100">No Telpon</span>
-                    </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Email Harus Diisi">
                         <input class="input100" type="text" name="email" required>
@@ -85,7 +80,7 @@ session_start();
 
                 <?php
                 if (isset($_POST['register'])) {
-                    $koneksi->query(" INSERT INTO `user` (`id_user`, `nama_user`, `email_user`, `no_telp`, `password`) VALUES ('', '$_POST[nama]','$_POST[email]','$_POST[no_telp]','$_POST[pass]' );");
+                    $koneksi->query(" INSERT INTO `admin` (`id_admin`, `email`, `username_admin`, `password`) VALUES ('', '$_POST[email]', '$_POST[username]','$_POST[pass]' );");
                     echo "<script>alert('Registrasi Berhasil, Silahkan Login');</script>";
                     echo "<script>location='login.php';</script>";
                 }

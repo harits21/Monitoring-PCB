@@ -2,10 +2,10 @@
 include 'koneksi.php';
 session_start();
 
-if (!isset($_SESSION["admin"])) {
+if (!isset($_SESSION["user"])) {
     echo "<script>alert('Anda harus login');</script>";
-    echo "<script>location='login.php';</script>";
-    header('location:login.php');
+    echo "<script>location='login_user.php';</script>";
+    header('location:login_user.php');
     exit();
 }
 ?>
@@ -19,7 +19,7 @@ if (!isset($_SESSION["admin"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Form Admin</title>
+    <title>Form User</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@ if (!isset($_SESSION["admin"])) {
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">RAFTECH PCB</a>
+        <a class="navbar-brand ps-3" href="index.html">RAFTECH-PCB</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -43,11 +43,11 @@ if (!isset($_SESSION["admin"])) {
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Profil</a></li>
+                    <li><a class="dropdown-item" href="edit_profil.php">Profil</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="logout.php?halaman=logout">Logout</a></li>
+                    <li><a class="dropdown-item" href="logout_user.php?halaman=logout">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -58,9 +58,13 @@ if (!isset($_SESSION["admin"])) {
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="user.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
+                        </a>
+                        <a class="nav-link" href="edit_profil.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Edit Profil
                         </a>
                         <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -74,46 +78,6 @@ if (!isset($_SESSION["admin"])) {
                                 <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                             </nav>
                         </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Pages
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Authentication
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                        <a class="nav-link" href="register.html">Register</a>
-                                        <a class="nav-link" href="password.html">Forgot Password</a>
-                                    </nav>
-                                </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                    Error
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">401 Page</a>
-                                        <a class="nav-link" href="404.html">404 Page</a>
-                                        <a class="nav-link" href="500.html">500 Page</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>
-                        <!-- <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="charts.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Charts
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Tables
-                        </a> -->
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -125,7 +89,7 @@ if (!isset($_SESSION["admin"])) {
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4"><br>
-                    <h1 class="mt-4"> Form Admin</h1>
+                    <h1 class="mt-4"> Progress Pembelian</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active"><br> Dashboard</li>
                     </ol>
@@ -135,15 +99,9 @@ if (!isset($_SESSION["admin"])) {
                     <?php
                     if (isset($_GET['halaman'])) {
                         if ($_GET['halaman'] == "logout")
-                            include 'logout.php';
+                            include 'logout_user.php';
                     }
-                    // elseif (isset($_GET['halaman'])) {
-                    //     if ($_GET['halaman'] == "edit")
-                    //         include 'edit.php';
-                    // } elseif (isset($_GET['halaman'])) {
-                    //     if ($_GET['halaman'] == "hapusproduk")
-                    //         include 'hapusproduk.php';
-                    // }
+
                     ?>
                     <!-- <div class="row">
                         <div class="col-xl-3 col-md-6">
