@@ -154,14 +154,14 @@ if (!isset($_SESSION["user"])) {
                     </table> -->
 
                     <form action="post" enctype="multipart/form-data">
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label><strong>Nama</strong></label>
                             <input type="text" name="nama" class="form-control" value="<?php echo $pecah['nama']; ?>" style="width:300px;" required="">
                         </div>
                         <div class="form-group">
                             <label><strong>Email</strong></label>
                             <input type="text" name="email" class="form-control" value="<?php echo $pecah['email']; ?>" style="width:300px;" required="">
-                        </div> -->
+                        </div>
                         <div class="form-group">
                             <label><strong>No Telpon</strong></label>
                             <input type="text" name="no_telp" class="form-control" value="<?php echo $pecah['no_telp']; ?>" style="width:300px;" required="">
