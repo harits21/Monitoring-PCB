@@ -4,4 +4,4 @@ include 'koneksi.php';
 $start_mb = $_POST['date_mb'];
 $id_karyawan = $_POST['nama_karyawan'];
 $id_in = $_POST['id_in'];
-$sql = mysqli_query($koneksi, "INSERT INTO masking_bawah (start_masking_bawah,nama_karyawanMB,no_invoice) VALUES ('$start_mb','$id_karyawan','$id_in')");
+$sql = mysqli_query($koneksi, "UPDATE masking_bawah SET start_masking_bawah = '$start_mb', nama_karyawanMB = '$id_karyawan' WHERE no_invoice = '$id_in'");

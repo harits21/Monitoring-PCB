@@ -1,7 +1,21 @@
 <?php
 include '_templateUser.php';
 include 'koneksi.php';
+
+
+if (isset($_POST["insert"])) {
+    $noinvoice = $_POST["invoice"];
+    if ($noinvoice == "") {
+        echo "<script>alert('No invoice belum diinputkan, silahkan inputkan no invoice :)');</script>";
+        echo "<script>location='user.php';</script>";
+    } else {
+        $ambil = $koneksi->query("SELECT * FROM order_masuk, order_verified, potong_pcb, ctk_jalur_bawah, ctk_jalur_atas, masking_bawah, masking_atas, silkscreen_bawah, silkscreen_atas, bor, plating, finishing, qc, packing WHERE order_masuk.no_invoice = '$noinvoice' AND order_verified.no_invoice = order_masuk.no_invoice
+        AND potong_pcb.no_invoice = order_masuk.no_invoice AND ctk_jalur_bawah.no_invoice = order_masuk.no_invoice AND ctk_jalur_atas.no_invoice = order_masuk.no_invoice AND masking_bawah.no_invoice = order_masuk.no_invoice AND masking_atas.no_invoice = order_masuk.no_invoice AND silkscreen_bawah.no_invoice = order_masuk.no_invoice AND silkscreen_atas.no_invoice = order_masuk.no_invoice AND bor.no_invoice = order_masuk.no_invoice AND plating.no_invoice = order_masuk.no_invoice AND finishing.no_invoice = order_masuk.no_invoice AND qc.no_invoice = order_masuk.no_invoice AND packing.no_invoice = order_masuk.no_invoice");
+    }
+}
 ?>
+
+
 
 <style>
     .accordion1 {
@@ -155,83 +169,85 @@ include 'koneksi.php';
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            Tabel Proses Pesanan
+                            Tabel Proses PCB
                         </div>
                         <div class="card-body">
-                            <div>
-                                <p>Tabel dibawah ini merupakan tabel tracking progress dari pesanan Anda. Untuk menampilkan progress pesanan Anda silahkan masukkan Nomor Invoice pada kolom diatas dan klik tombol "Lacak Progress".</p>
-                            </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
-                                    <tr>
-                                        <td>Nama</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>No invoice</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Spec PCB</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jumlah</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Order Verified</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Potong PCB</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cetak Jalur Bawah</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cetak Jalur Atas</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Masking Bawah</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Masking Atas</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Silkscreen Bawah</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Silkscreen Atas</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bor</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Plating</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Finishing</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quality Control</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Packing</td>
-                                        <td>X</td>
-                                    </tr>
-                                </table>
+                                    <table class="table table-bordered">
+                                        <?php
+                                        while ($row = $ambil->fetch_assoc()) {
+                                        ?>
+                                            <tr>
+                                                <td>Nama</td>
+                                                <td><?php echo $row['nama_customer'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>No invoice</td>
+                                                <td><?php echo $row['no_invoice'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Spec PCB</td>
+                                                <td><?php echo $row['spec_pcb'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jumlah</td>
+                                                <td><?php echo $row['jumlah'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Order Verified</td>
+                                                <td>Proses ini telah selesai dilakukan pada <b><?php echo  $row['stop_verif'] ?></b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Potong PCB</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_potong'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cetak Jalur Bawah</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_ctk_bawah'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cetak Jalur Atas</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_ctk_atas'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Masking Bawah</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_masking_bawah'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Masking Atas</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_masking_atas'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Silkscreen Bawah</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_silk_bawah'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Silkscreen Atas</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_silk_atas'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bor</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_bor'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Plating</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_plating'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Finishing</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_finishing'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Quality Control</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_qc'] ?></u></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Packing</td>
+                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_packing'] ?></u></td>
+                                            </tr>
+                                        <?php } ?>
+                                    </table>
                             </div>
                         </div>
                     </div>
