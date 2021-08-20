@@ -51,3 +51,8 @@ function kirim_email($email_penerima, $nama_penerima, $judul_email, $isi_email)
         return "Gagal: {$mail->ErrorInfo}";
     }
 }
+
+function cari($invoice)
+{
+    $query = "SELECT * FROM order_masuk, order_verified, potong_pcb, ctk_jalur_bawah WHERE order_masuk.no_invoice = '$invoice' AND order_verified.no_invoice = order_masuk.no_invoice AND potong_pcb.no_invoice = order_masuk.no_invoice AND ctk_jalur_bawah.no_invoice = order_masuk.no_invoice";
+}

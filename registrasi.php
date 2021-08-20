@@ -1,6 +1,9 @@
 <?php
 include 'koneksi.php';
 session_start();
+$ambil = $koneksi->query("SELECT * FROM tb_sku WHERE no='$_GET[id]'");
+$pecah = $ambil->fetch_assoc();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -41,19 +44,18 @@ session_start();
             <div class="wrap-login100">
                 <form class="login100-form validate-form" method="post" role="form">
                     <span class=" login100-form-title p-b-43">
-                        Registrasi
+                        Registrasi Admin
                     </span>
                     <br><br>
 
-                    <div class="wrap-input100 validate-input" data-validate="Email Harus Diisi">
+                    <!-- <div class="wrap-input100 validate-input" data-validate="Email Harus Diisi">
                         <input class="input100" type="text" name="username" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Username</span>
-                    </div>
-
+                    </div> -->
 
                     <div class="wrap-input100 validate-input" data-validate="Email Harus Diisi">
-                        <input class="input100" type="text" name="email" required>
+                        <input class="input100" type="text" name="email" autocomplete="off" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
@@ -80,7 +82,7 @@ session_start();
 
                 <?php
                 if (isset($_POST['register'])) {
-                    $koneksi->query(" INSERT INTO `admin` (`id_admin`, `email`, `username_admin`, `password`) VALUES ('', '$_POST[email]', '$_POST[username]','$_POST[pass]' );");
+                    $koneksi->query(" INSERT INTO `admin` (`id_admin`, `email_admin`,  `password`) VALUES ('', '$_POST[email]','$_POST[pass]' );");
                     echo "<script>alert('Registrasi Berhasil, Silahkan Login');</script>";
                     echo "<script>location='login.php';</script>";
                 }

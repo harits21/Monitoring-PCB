@@ -1,6 +1,14 @@
 <?php
 include '_templateAdmin.php';
 include 'koneksi.php';
+session_start();
+
+if (!isset($_SESSION["admin"])) {
+    echo "<script>alert('Anda harus login');</script>";
+    echo "<script>location='login.php';</script>";
+    header('location:login.php');
+    exit();
+}
 ?>
 <!-- style table accordion -->
 <style>
@@ -39,8 +47,7 @@ include 'koneksi.php';
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                <a class="navbar-brand ps-3">Selamat Datang <Strong>Admin</Strong></a>
             </div>
         </form>
         <!-- Navbar-->
@@ -48,12 +55,11 @@ include 'koneksi.php';
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="">Profil</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" href="logout.php?halaman=logout">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -135,6 +141,13 @@ include 'koneksi.php';
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
+                    <!-- <pre><?php print_r($_SESSION); ?></pre> -->
+                    <?php
+                    if (isset($_GET['halaman'])) {
+                        if ($_GET['halaman'] == "logout")
+                            include 'logout.php';
+                    }
+                    ?>
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">

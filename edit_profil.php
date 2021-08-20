@@ -1,18 +1,27 @@
 <?php
 include 'koneksi.php';
-
-$ambil = $koneksi->query("SELECT * FROM user");
-$pecah = $ambil->fetch_assoc();;
 session_start();
+// $id = $_SESSION['id'];
+// $ambil = $koneksi->query("SELECT * FROM user WHERE id_user='$id' ");
+$ambil = $koneksi->query("SELECT * FROM user Where id_user=" . $_SESSION['user']['id_user']);
+$pecah = $ambil->fetch_array();
 
-if (!isset($_SESSION["user"])) {
-    echo "<script>alert('Anda harus login');</script>";
-    echo "<script>location='login_user.php';</script>";
-    header('location:login_user.php');
-    exit();
-}
-
+// if (!isset($_SESSION["user"])) {
+//     $ambil = $koneksi->query("SELECT * FROM user WHERE id_user='$id'");
+//     $pecah = $ambil->fetch_assoc();
+// }
+// error_reporting(E_ALL ^ E_WARNING || E_NOTICE);
 ?>
+<style>
+    #card {
+        background: #fbfbfb;
+        border-radius: 8px;
+        box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+        height: 450px;
+        margin: 6rem auto 8.1rem auto;
+        width: 430px;
+    }
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,14 +41,15 @@ if (!isset($_SESSION["user"])) {
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">RAFTECH-PCB</a>
+        <a class="navbar-brand ps-3" href="user.php">RAFTECH-PCB</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="post">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                <div>
+                    <a class="navbar-brand ps-3">Selamat Datang <strong><?php echo $pecah['nama_user'] ?> !</strong> </a>
+                </div>
             </div>
         </form>
         <!-- Navbar-->
@@ -68,7 +78,7 @@ if (!isset($_SESSION["user"])) {
                         </a>
                         <a class="nav-link" href="edit_profil.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Edit Profil
+                            Profil
                         </a>
                         <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -93,101 +103,90 @@ if (!isset($_SESSION["user"])) {
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4"><br>
-                    <h1 class="mt-4"> Edit Profil</h1>
+                    <h1 class="mt-4">
+                        <center>Edit Profil</center>
+                    </h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active"><br> Edit Profil</li>
+                        <li class="breadcrumb-item active"><br>Edit Profil</li>
                     </ol>
 
-                    <pre><?php print_r($_SESSION); ?></pre>
+                    <!-- <pre><?php print_r($_SESSION); ?></pre> -->
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-1">
+                            <div class="card bg-neutral" id="card">
+                                <div class="card-body px-lg-6 py-lg-5">
+                                    <div class="row">
+                                        <div class="container">
+                                            <form method="post">
+                                                <div class="form-group">
+                                                    <h5>&nbsp;Nama</h5>
+                                                    <input type="text" name="nama" value="<?php echo $pecah['nama_user'] ?>" class="form-control" style="width:390px;">
+                                                </div><br>
+                                                <div class="form-group">
+                                                    <h5>&nbsp;Email</h5>
+                                                    <input type="email" name="email" value="<?php echo $pecah['email_user'] ?>" class="form-control" style="width:390px;">
+                                                </div><br>
+                                                <div class="form-group">
+                                                    <h5>&nbsp;No.Telpon</h5>
+                                                    <input type="number" name="telp" value="<?php echo $pecah['no_telp'] ?>" class="form-control" style="width:390px;">
+                                                </div><br><br>
+                                                <center>
+                                                    <button type="submit" name="edit" class="btn btn-primary" onclick="return confirm('Data Sudah Benar?')">&nbsp;Save&nbsp;&nbsp;
+                                                    </button> &nbsp;
+                                                    <button class="btn btn-danger" type="Reset">Reset</button>
+                                                </center>
+                                            </form>
+
+                                            <?php
+                                            if (isset($_POST['edit'])) {
+                                                $koneksi->query("UPDATE user SET nama_user='$_POST[nama]',email_user='$_POST[email]', no_telp='$_POST[telp]' WHERE id_user=" . $_SESSION['user']['id_user']);
+                                                echo "<script>alert('Data telah teredit');</script>";
+                                                echo "<script>location='user.php';</script>";
+                                            }
+                                            ?>
+
+                                            <?php
+                                            if (isset($_GET['halaman'])) {
+                                                if ($_GET['halaman'] == "logout")
+                                                    include 'logout_user.php';
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>
-                                    <center>No.</center>
-                                </th>
-                                <th>
-                                    <center>Nama</center>
-                                </th>
-                                <th>
-                                    <center>Nama</center>
-                                </th>
-                                <th>
-                                    <center>Spec PCB</center>
-                                </th>
-                                <th>
-                                    <center>Jumlah</center>
-                                </th>
-                                <th>
-                                    <center>Aksi</center>
-                                </th>
+                                <td>Nama</td>
+                                <td>Email</td>
+                                <td>No.Telpon</td>
+                                <td>Aksi</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            $nomor = 1;
-                            $ambil = mysqli_query($koneksi, "SELECT * FROM user");
-                            while ($data = $ambil->fetch_assoc()) { ?>
-                                <tr>
-                                    <td>
-                                        <center><?php echo $nomor; ?></center>
-                                    </td>
-                                    <td>
-                                        <center><?php echo $data['no_invoice']; ?></center>
-                                    </td>
-                                    <td>
-                                        <center><?php echo $data['nama_customer']; ?></center>
-                                    </td>
-                                    <td>
-                                        <center><?php echo $data['spec_pcb']; ?></center>
-                                    </td>
-                                    <td>
-                                        <center><?php echo $data['jumlah'] ?></center>
-                                    </td>
-                                    <td>
-                                        <center><a href="" class="btn btn-warning">Detail</a></center>
-                                    </td>
-                                </tr>
-                                <?php $nomor++; ?>
-                            <?php } ?>
+                            <?php foreach ($_SESSION as $id => $value) : ?>
+                                <?php $ambil = $koneksi->query("SELECT * FROM user where id_user='$id' "); ?>
+                                <?php while ($pecah = $ambil->fetch_assoc()) { ?>
+                                    <tr>
+                                        <td><?php echo $pecah['nama_user'] ?></td>
+                                        <td><?php echo $pecah['email_user']; ?></td>
+                                        <td><?php echo $pecah['no_telp']; ?></td>
+                                        <td>
+                                            <a href="" class="btn btn-warning">Edit</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            <?php endforeach ?>
                         </tbody>
                     </table> -->
 
-                    <form action="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label><strong>Nama</strong></label>
-                            <input type="text" name="nama" class="form-control" value="<?php echo $pecah['nama']; ?>" style="width:300px;" required="">
-                        </div>
-                        <div class="form-group">
-                            <label><strong>Email</strong></label>
-                            <input type="text" name="email" class="form-control" value="<?php echo $pecah['email']; ?>" style="width:300px;" required="">
-                        </div>
-                        <div class="form-group">
-                            <label><strong>No Telpon</strong></label>
-                            <input type="text" name="no_telp" class="form-control" value="<?php echo $pecah['no_telp']; ?>" style="width:300px;" required="">
-                        </div>
 
-                        <button class="btn btn-primary" name="edit" onclick="return confirm('Data Sudah Benar?')">Save</button>
-                        <button class="btn btn-danger" type="Reset">Reset</button>
 
-                    </form>
-
-                    <?php
-                    if (isset($_POST['edit'])) {
-                        $koneksi->query("UPDATE user SET nama_user='$_POST[nama]',email_user='$_POST[email]', no_telp='$_POST[no_telp]'WHERE no='$_GET[id_user]' ");
-                        echo "<script>alert('Data telah teredit');</script>";
-                        echo "<script>location='index.php';</script>";
-                    }
-                    ?>
-
-                    <?php
-                    if (isset($_GET['halaman'])) {
-                        if ($_GET['halaman'] == "logout")
-                            include 'logout_user.php';
-                    }
-                    ?>
-
-                </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">

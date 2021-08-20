@@ -41,24 +41,24 @@ session_start();
             <div class="wrap-login100">
                 <form class="login100-form validate-form" method="post" role="form">
                     <span class=" login100-form-title p-b-43">
-                        Registrasi
+                        Registrasi User Baru
                     </span>
                     <br><br>
 
                     <div class="wrap-input100 validate-input" data-validate="Nama Harus Diisi">
-                        <input class="input100" type="text" name="nama" required>
+                        <input class="input100" type="text" name="nama" autocomplete="off" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Nama</span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="No.Telp Harus Diisi">
-                        <input class="input100" type="number" name="no_telp" min="0" required>
+                        <input class="input100" type="number" name="no_telp" min="0" autocomplete="off" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">No Telpon</span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Email Harus Diisi">
-                        <input class="input100" type="text" name="email" required>
+                        <input class="input100" type="text" name="email" autocomplete="off" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
@@ -79,7 +79,7 @@ session_start();
 
                     <br>
                     <div class="text-center p-t-46 p-b-20">
-                        <a href="login.php">Sudah Punya Akun ? <strong>Kembali ke Login</strong> </a>
+                        <a href="login_user.php">Sudah Punya Akun ? <strong>Kembali ke Login</strong> </a>
                     </div>
                 </form>
 
@@ -87,7 +87,7 @@ session_start();
                 if (isset($_POST['register'])) {
                     $koneksi->query(" INSERT INTO `user` (`id_user`, `nama_user`, `email_user`, `no_telp`, `password`) VALUES ('', '$_POST[nama]','$_POST[email]','$_POST[no_telp]','$_POST[pass]' );");
                     echo "<script>alert('Registrasi Berhasil, Silahkan Login');</script>";
-                    echo "<script>location='login.php';</script>";
+                    echo "<script>location='login_user.php';</script>";
                 }
                 ?>
 
