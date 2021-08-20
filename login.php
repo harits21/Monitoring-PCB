@@ -62,7 +62,7 @@ session_start();
 
                     <?php
                     if (isset($_POST['login'])) {
-                        $ambil = $koneksi->query("SELECT * FROM admin WHERE email='$_POST[email]' AND password ='$_POST[pass]' ");
+                        $ambil = $koneksi->query("SELECT * FROM admin WHERE email_admin='$_POST[email]' AND password ='$_POST[pass]' ");
                         $cocok = $ambil->num_rows;
                         if ($cocok == 1) {
                             $_SESSION['admin'] = $ambil->fetch_assoc();

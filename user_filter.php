@@ -1,6 +1,13 @@
 <?php
+session_start();
 include '_templateUser.php';
 include 'koneksi.php';
+
+if (!isset($_SESSION["user"])) {
+    echo "<script>alert('Anda harus login');</script>";
+    echo "<script>location='login_user.php';</script>";
+    exit();
+}
 
 
 if (isset($_POST["insert"])) {
@@ -47,14 +54,12 @@ if (isset($_POST["insert"])) {
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="admin.php">RAFTECH PCB</a>
+        <a class="navbar-brand ps-3" href="user.php">RAFTECH PCB</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div>
         </form>
         <!-- Navbar-->
@@ -62,12 +67,7 @@ if (isset($_POST["insert"])) {
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" href="logout_user.php">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -78,7 +78,7 @@ if (isset($_POST["insert"])) {
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="user.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -143,127 +143,123 @@ if (isset($_POST["insert"])) {
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4">Progress</h1><br>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
+            <div class="container-fluid px-4">
+                <h2 class="mt-4">Lacak Pesanan</h2>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item">
+                        <p>Tabel dibawah ini merupakan tabel tracking progress dari pesanan Anda. Untuk menampilkan progress pesanan Anda silahkan masukkan Nomor Invoice pada kolom dibawah ini dan klik tombol "Lacak Progress".</p>
+                    </li>
+                </ol>
 
-                    <form action="user_filter.php" method="POST">
-                        <div class="row mb-3">
-                            <label for="" class="col-sm-2 col-form-label">Masukkan No Invoice</label>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" id="invoice" name="invoice" autofocus>
-                            </div>
+                <form action="user_filter.php" method="POST">
+                    <div class="row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Masukkan No Invoice</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="invoice" name="invoice" autofocus>
                         </div>
+                    </div>
 
-                        <div class="row mb-3">
-                            <label for="" class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-5">
-                                <button type="submit" class="btn btn-primary" name="insert">Lacak Progress</button>
-                            </div>
+                    <div class="row mb-3">
+                        <label for="" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-5">
+                            <button type="submit" class="btn btn-primary" name="insert">Lacak Progress</button>
                         </div>
-                    </form>
+                    </div>
+                </form>
 
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table me-1"></i>
-                            Tabel Proses PCB
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Tabel Proses PCB
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
                                 <table class="table table-bordered">
-                                    <table class="table table-bordered">
-                                        <?php
-                                        while ($row = $ambil->fetch_assoc()) {
-                                        ?>
-                                            <tr>
-                                                <td>Nama</td>
-                                                <td><?php echo $row['nama_customer'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>No invoice</td>
-                                                <td><?php echo $row['no_invoice'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Spec PCB</td>
-                                                <td><?php echo $row['spec_pcb'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jumlah</td>
-                                                <td><?php echo $row['jumlah'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Order Verified</td>
-                                                <td>Proses ini telah selesai dilakukan pada <b><?php echo  $row['stop_verif'] ?></b></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Potong PCB</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_potong'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cetak Jalur Bawah</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_ctk_bawah'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cetak Jalur Atas</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_ctk_atas'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Masking Bawah</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_masking_bawah'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Masking Atas</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_masking_atas'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Silkscreen Bawah</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_silk_bawah'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Silkscreen Atas</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_silk_atas'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bor</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_bor'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Plating</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_plating'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Finishing</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_finishing'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Quality Control</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_qc'] ?></u></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Packing</td>
-                                                <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_packing'] ?></u></td>
-                                            </tr>
-                                        <?php } ?>
-                                    </table>
-                            </div>
+                                    <?php
+                                    while ($row = $ambil->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td>Nama</td>
+                                            <td><?php echo $row['nama_customer'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>No invoice</td>
+                                            <td><?php echo $row['no_invoice'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Spec PCB</td>
+                                            <td><?php echo $row['spec_pcb'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jumlah</td>
+                                            <td><?php echo $row['jumlah'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Order Verified</td>
+                                            <td>Proses ini telah selesai dilakukan pada <b><?php echo  $row['stop_verif'] ?></b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Potong PCB</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_potong'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cetak Jalur Bawah</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_ctk_bawah'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cetak Jalur Atas</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_ctk_atas'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Masking Bawah</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_masking_bawah'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Masking Atas</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_masking_atas'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Silkscreen Bawah</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_silk_bawah'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Silkscreen Atas</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_silk_atas'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bor</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_bor'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Plating</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_plating'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Finishing</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_finishing'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quality Control</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_qc'] ?></u></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Packing</td>
+                                            <td>Proses ini telah selesai dilakukan pada <u><?php echo $row['stop_packing'] ?></u></td>
+                                        </tr>
+                                    <?php } ?>
+                                </table>
                         </div>
                     </div>
                 </div>
+            </div>
             </main>
 
 
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
+                        <div class="text-muted">Copyright &copy; RAFTECH 2021</div>
                     </div>
                 </div>
             </footer>

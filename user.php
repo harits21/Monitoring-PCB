@@ -1,6 +1,14 @@
 <?php
+session_start();
 include '_templateUser.php';
 include 'koneksi.php';
+
+$logged = $_SESSION["user"];
+if (!isset($_SESSION["user"])) {
+    echo "<script>alert('Anda harus login');</script>";
+    echo "<script>location='login_user.php';</script>";
+    exit();
+}
 ?>
 
 <style>
@@ -33,14 +41,12 @@ include 'koneksi.php';
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="admin.php">RAFTECH PCB</a>
+        <a class="navbar-brand ps-3" href="user.php">RAFTECH PCB</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div>
         </form>
         <!-- Navbar-->
@@ -48,12 +54,7 @@ include 'koneksi.php';
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" href="logout_user.php">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -64,7 +65,7 @@ include 'koneksi.php';
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="user.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -131,9 +132,12 @@ include 'koneksi.php';
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Progress</h1><br>
+                    <h1 class="mt-4"><?php echo "Selamat datang " . $logged['nama_user'] . ""; ?> &#128522;</h1>
+                    <h2 class="mt-4">Lacak Pesanan</h2>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item">
+                            <p>Tabel dibawah ini merupakan tabel tracking progress dari pesanan Anda. Untuk menampilkan progress pesanan Anda silahkan masukkan Nomor Invoice pada kolom dibawah ini dan klik tombol "Lacak Progress".</p>
+                        </li>
                     </ol>
 
                     <form action="user_filter.php" method="POST">
@@ -158,9 +162,6 @@ include 'koneksi.php';
                             Tabel Proses Pesanan
                         </div>
                         <div class="card-body">
-                            <div>
-                                <p>Tabel dibawah ini merupakan tabel tracking progress dari pesanan Anda. Untuk menampilkan progress pesanan Anda silahkan masukkan Nomor Invoice pada kolom diatas dan klik tombol "Lacak Progress".</p>
-                            </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
@@ -242,12 +243,7 @@ include 'koneksi.php';
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
+                        <div class="text-muted">Copyright &copy; RAFTECH 2021</div>
                     </div>
                 </div>
             </footer>
