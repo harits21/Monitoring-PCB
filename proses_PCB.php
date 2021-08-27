@@ -1,19 +1,33 @@
 <?php include_once('_templateKaryawan.php');
 include 'koneksi.php';
+session_start();
+
+$logged = $_SESSION["karyawan"];
+if (!isset($_SESSION["karyawan"])) {
+    echo "<script>alert('Anda harus login terlebih dahulu');</script>";
+    echo "<script>location='Raftech_Kpcb.php';</script>";
+    exit();
+}
 ?>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="karyawan.php">RAFTECH PCB</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" href="">Karyawan</a>
-
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php echo "Halo, " . $logged['nama_karyawan'] . "" ?>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="logout_karyawan.php">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -34,7 +48,7 @@ include 'koneksi.php';
                             <option disabled selected>--Pilih No Invoice--</option>
                             <?php
                             include 'koneksi.php';
-                            $invoice = mysqli_query($koneksi, "SELECT * FROM order_masuk ORDER BY date LIMIT 20");
+                            $invoice = mysqli_query($koneksi, "SELECT * FROM order_masuk ORDER BY date DESC LIMIT 20");
                             while ($row = mysqli_fetch_array($invoice)) {
                                 echo "<option value='$row[no_invoice]'>$row[no_invoice]</option>";
                             }
@@ -60,7 +74,7 @@ include 'koneksi.php';
                         <select class="form-select" aria-label="Default select example" id="nama_karyawan" name="nama_karyawan">
                             <option disabled selected>--Pilih Karyawan--</option>
                             <?php
-                            $karyawan = mysqli_query($koneksi, "SELECT * FROM karyawan");
+                            $karyawan = mysqli_query($koneksi, "SELECT * FROM karyawan Where id_karyawan=" . $_SESSION['karyawan']['id_karyawan']);
                             while ($row = mysqli_fetch_array($karyawan)) {
                                 echo "<option value='$row[nama_karyawan]'>$row[nama_karyawan]</option>";
                             }
@@ -186,8 +200,6 @@ include 'koneksi.php';
                     </div>
                 </div>
             </form>
-
-
         </div>
     </div>
 </div>
