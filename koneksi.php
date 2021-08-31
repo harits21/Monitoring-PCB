@@ -1,1 +1,1 @@
-<?php $koneksi = new mysqli("localhost", "root", "", "pcb");
+<?php $koneksi = new mysqli("localhost", "root", "", "pcb_v01");

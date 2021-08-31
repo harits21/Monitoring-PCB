@@ -1,7 +1,7 @@
 <?php
 include 'koneksi.php';
 session_start();
-$ambil = $koneksi->query("SELECT * FROM user Where id_user=" . $_SESSION['user']['id_user']);
+$ambil = $koneksi->query("SELECT * FROM customers Where id_customers=" . $_SESSION['user']['id_customers']);
 $pecah = $ambil->fetch_array();
 ?>
 <style>
@@ -39,7 +39,7 @@ $pecah = $ambil->fetch_array();
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="post">
             <div>
-                <a class="navbar-brand ps-3">Selamat Datang <strong><?php echo $pecah['nama_user'] ?></strong> ! </a>
+                <a class="navbar-brand ps-3">Selamat Datang <strong><?php echo $pecah['nama_customers'] ?></strong> ! </a>
             </div>
         </form>
         <!-- Navbar-->
@@ -96,11 +96,11 @@ $pecah = $ambil->fetch_array();
                                             <form method="post">
                                                 <div class="form-group">
                                                     <h5>&nbsp;Nama</h5>
-                                                    <input type="text" name="nama" value="<?php echo $pecah['nama_user'] ?>" class="form-control" style="width:390px;">
+                                                    <input type="text" name="nama" value="<?php echo $pecah['nama_customers'] ?>" class="form-control" style="width:390px;">
                                                 </div><br>
                                                 <div class="form-group">
                                                     <h5>&nbsp;Email</h5>
-                                                    <input type="email" name="email" value="<?php echo $pecah['email_user'] ?>" class="form-control" style="width:390px;">
+                                                    <input type="email" name="email" value="<?php echo $pecah['email_customers'] ?>" class="form-control" style="width:390px;">
                                                 </div><br>
                                                 <div class="form-group">
                                                     <h5>&nbsp;No.Telpon</h5>
@@ -115,7 +115,10 @@ $pecah = $ambil->fetch_array();
 
                                             <?php
                                             if (isset($_POST['edit'])) {
-                                                $koneksi->query("UPDATE user SET nama_user='$_POST[nama]',email_user='$_POST[email]', no_telp='$_POST[telp]' WHERE id_user=" . $_SESSION['user']['id_user']);
+                                                $nama = $_POST['nama'];
+                                                $email = $_POST['email'];
+                                                $notelp = $_POST['telp'];
+                                                $koneksi->query("UPDATE customers SET nama_customers='$nama',email_customers='$email', no_telp='$notelp' WHERE id_customers=" . $_SESSION['user']['id_customers']);
                                                 echo "<script>alert('Data telah teredit');</script>";
                                                 echo "<script>location='user.php';</script>";
                                             }

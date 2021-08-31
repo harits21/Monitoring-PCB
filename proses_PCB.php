@@ -50,7 +50,7 @@ if (!isset($_SESSION["karyawan"])) {
                             include 'koneksi.php';
                             $invoice = mysqli_query($koneksi, "SELECT * FROM order_masuk ORDER BY date DESC LIMIT 20");
                             while ($row = mysqli_fetch_array($invoice)) {
-                                echo "<option value='$row[no_invoice]'>$row[no_invoice]</option>";
+                                echo "<option value='$row[no_invoice]'>$row[no_invoice] - $row[nama_customers]</option>";
                             }
                             ?>
                         </select>
@@ -85,10 +85,11 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Order Verified</label>
                     <div class="col-sm-10">
-                        <input hidden type="text" id="date" name="date" class="form-control">
-                        <input hidden type="text" id="date2" name="date2" class="form-control">
-                        <input type="button" class="btn btn-primary" onclick="start_order()" value="Start">
-                        <input type="button" class="btn btn-success" onclick="stop_order()" value="Stop">
+                        <input type="text" id="date" name="date" class="form-control">
+                        <input type="text" id="date2" name="date2" class="form-control">
+                        <input type="text" id="durasi_v" name="durasi_v" class="form-control">
+                        <input type="button" class="btn btn-primary" onclick="start_order()" id="startV" value="Start">
+                        <input type="button" class="btn btn-success" onclick="stop_order()" id="stopV" value="Stop">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -96,7 +97,7 @@ if (!isset($_SESSION["karyawan"])) {
                     <div class="col-sm-10">
                         <input hidden type="text" id="date_p" name="date_p" class="form-control">
                         <input hidden type="text" id="date_potong2" name="date_potong2" class="form-control">
-                        <input type="button" class="btn btn-primary" onclick="start_potong()" value="Start">
+                        <input type="button" class="btn btn-primary" onclick="start_potong()" id="startP" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_potong()" value="Stop">
                     </div>
                 </div>

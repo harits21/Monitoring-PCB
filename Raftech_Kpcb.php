@@ -43,7 +43,7 @@ if (isset($_POST['login'])) {
     $cocok = $sql->num_rows;
     if ($cocok == 1) {
         $_SESSION['karyawan'] = $sql->fetch_assoc();
-        if ($_SESSION['karyawan']['Role'] == "Insert") {
+        if ($_SESSION['karyawan']['role'] == "Insert") {
             echo "<div class= 'alert alert-info'> Login Sukses </div>";
             echo "<meta http-equiv= 'refresh' content='1;url=karyawan.php'>";
         } else {

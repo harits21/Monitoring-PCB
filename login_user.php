@@ -48,7 +48,7 @@ session_start();
                     <br><br>
 
                     <div class="wrap-input100 validate-input" data-validate="Email Harus Benar">
-                        <input class="input100" type="text" name="email">
+                        <input class="input100" type="text" name="email" autofocus>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
@@ -62,7 +62,9 @@ session_start();
 
                     <?php
                     if (isset($_POST['login'])) {
-                        $ambil = $koneksi->query("SELECT * FROM user WHERE email_user='$_POST[email]' AND password ='$_POST[pass]' ");
+                        $email = $_POST['email'];
+                        $password = $_POST['pass'];
+                        $ambil = $koneksi->query("SELECT * FROM customers WHERE email_customers='$email' AND password_customers ='$password' ");
                         $cocok = $ambil->num_rows;
                         if ($cocok == 1) {
                             $_SESSION['user'] = $ambil->fetch_assoc();

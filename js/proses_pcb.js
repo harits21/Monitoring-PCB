@@ -9,6 +9,15 @@ function cek_db() {
             obj = JSON.parse(json);
         $('#spec').val(obj.spec_pcb);
         $('#jumlah').val(obj.jumlah);
+        if(obj.start_verif!=null){
+            $('#startV').attr("disabled",true);
+        } else {
+            $('#startV').attr("disabled",false);
+        } if (obj.stop_verif!=null){
+            $('#stopV').attr("disabled",true);
+        } else {
+            $('#stopV').attr("disabled",false);
+        }
     });
 }
 
@@ -19,6 +28,7 @@ function start_order(){
     var start_verif = n;
     $('#date').val(start_verif);
     var data = $('.aksi').serialize();
+    $('#startV').attr("disabled",true);
     $.ajax({
         type: 'POST',
         url: 'save_order.php',
@@ -31,6 +41,12 @@ function stop_order(){
     var d = new Date();
     var n = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+" "+d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
     var stop_verif = n;
+    var a = new Date($('#date').val());
+    var seconds = d.getSeconds()-a.getSeconds();
+    var minutes = d.getMinutes()-a.getMinutes();
+    var hours = d.getHours()-a.getHours();
+
+    $('#durasi_v').val(hours+" Jam "+minutes+" Menit "+seconds+" Detik");
     $('#date2').val(stop_verif);
     var data = $('.aksi').serialize();
     $.ajax({

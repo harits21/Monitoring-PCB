@@ -61,8 +61,8 @@ if (!isset($_SESSION["karyawan"])) {
                         <tr>
                             <td><?php echo $nomor; ?></td>
                             <td><?php echo $data['no_invoice']; ?></td>
-                            <td><?php echo $data['nama_customer']; ?></td>
-                            <td><?php echo $data['email_customer'] ?></td>
+                            <td><?php echo $data['nama_customers']; ?></td>
+                            <td><?php echo $data['email_customers'] ?></td>
                             <td><?php echo $data['spec_pcb']; ?></td>
                             <td><?php echo $data['jumlah'] ?></td>
                         </tr>

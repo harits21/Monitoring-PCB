@@ -11,7 +11,7 @@ if (!isset($_SESSION["user"])) {
 }
 
 
-$ambil = $koneksi->query("SELECT * FROM user Where id_user=" . $_SESSION['user']['id_user']);
+$ambil = $koneksi->query("SELECT * FROM customers Where id_customers=" . $_SESSION['user']['id_customers']);
 $pecah = $ambil->fetch_array();
 ?>
 
@@ -51,7 +51,7 @@ $pecah = $ambil->fetch_array();
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div>
-                <a class="navbar-brand ps-3">Selamat Datang <strong><?php echo $pecah['nama_user'] ?></strong> ! </a>
+                <a class="navbar-brand ps-3">Selamat Datang <strong><?php echo $pecah['nama_customers'] ?></strong> ! </a>
             </div>
         </form>
         <!-- Navbar-->
@@ -119,75 +119,97 @@ $pecah = $ambil->fetch_array();
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <td>Nama</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>No invoice</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Spec PCB</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jumlah</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Order Verified</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Potong PCB</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cetak Jalur Bawah</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cetak Jalur Atas</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Masking Bawah</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Masking Atas</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Silkscreen Bawah</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Silkscreen Atas</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bor</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Plating</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Finishing</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quality Control</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Packing</td>
-                                        <td>X</td>
-                                    </tr>
+                                <table class="table table-bordered" id="datatablesSimple">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th rowspan="2">
+                                                <center>No</center>
+                                            </th>
+                                            <th rowspan="2">
+                                                <center>Nama</center>
+                                            </th>
+                                            <th rowspan="2">
+                                                <center>No.Invoice</center>
+                                            </th>
+                                            <th rowspan="2">
+                                                <center>Spec PCB</center>
+                                            </th>
+                                            <th rowspan="2">
+                                                <center>Jumlah</center>
+                                            </th>
+                                            <th>
+                                                <center>Order Verified</center>
+                                            </th>
+                                            <th>
+                                                <center>Potong PCB</center>
+                                            </th>
+                                            <th>
+                                                <center>Cetak jlr bwh</center>
+                                            </th>
+                                            <th>
+                                                <center>Cetak jlr atas</center>
+                                            </th>
+                                            <th>
+                                                <center>Masking Bawah</center>
+                                            </th>
+                                            <th>
+                                                <center>Masking Atas</center>
+                                            </th>
+                                            <th>
+                                                <center>Silkscreen bawah</center>
+                                            </th>
+                                            <th>
+                                                <center>silkscreen atas</center>
+                                            </th>
+                                            <th>
+                                                <center>Bor</center>
+                                            </th>
+                                            <th>
+                                                <center>Plating</center>
+                                            </th>
+                                            <th>
+                                                <center>Finishing</center>
+                                            </th>
+                                            <th>
+                                                <center>QC</center>
+                                            </th>
+                                            <th>
+                                                <center>Packing</center>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="13"><b>
+                                                    <center>Proses selesai dilakukan pada</center>
+                                                </b></td>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                    $nomor = 1;
+                                    $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk WHERE email_customers = '$pecah[email_customers]'");
+                                    while ($data = $ambil->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $nomor; ?></td>
+                                            <td><?php echo $data['nama_customers']; ?></td>
+                                            <td><?php echo $data['no_invoice']; ?></td>
+                                            <td><?php echo $data['spec_pcb']; ?></td>
+                                            <td><?php echo $data['jumlah']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_verif']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_potong']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_ctk_bawah']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_ctk_atas']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_masking_bawah']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_masking_atas']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_silk_bawah']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_silk_atas']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_bor']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_plating']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_finishing']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_qc']; ?></td>
+                                            <td><?php echo $date2 =  $data['stop_packing']; ?></td>
+                                        </tr>
+                                    <?php $nomor++;
+                                    } ?>
                                 </table>
                             </div>
                         </div>

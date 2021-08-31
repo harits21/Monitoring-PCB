@@ -46,7 +46,7 @@ session_start();
                     <br><br>
 
                     <div class="wrap-input100 validate-input" data-validate="Nama Harus Diisi">
-                        <input class="input100" type="text" name="nama" required>
+                        <input class="input100" type="text" name="nama" required autofocus>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Nama</span>
                     </div>
@@ -85,7 +85,11 @@ session_start();
 
                 <?php
                 if (isset($_POST['register'])) {
-                    $koneksi->query(" INSERT INTO `user` (`id_user`, `nama_user`, `email_user`, `no_telp`, `password`) VALUES ('', '$_POST[nama]','$_POST[email]','$_POST[no_telp]','$_POST[pass]' );");
+                    $nama = $_POST['nama'];
+                    $email = $_POST['email'];
+                    $notelp = $_POST['no_telp'];
+                    $password = $_POST['pass'];
+                    $koneksi->query(" INSERT INTO `customers` (`nama_customers`, `email_customers`, `no_telp`, `password_customers`) VALUES ('$nama','$email','$notelp','$password' );");
                     echo "<script>alert('Registrasi Berhasil, Silahkan Login');</script>";
                     echo "<script>location='login.php';</script>";
                 }

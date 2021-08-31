@@ -11,32 +11,7 @@ if (!isset($_SESSION["admin"])) {
 }
 ?>
 <!-- style table accordion -->
-<style>
-    .accordion1 {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.4s;
-    }
 
-    .active,
-    .accordion1:hover {
-        background-color: #ccc;
-    }
-
-    .panel {
-        padding: 0 18px;
-        display: none;
-        background-color: white;
-        overflow: hidden;
-    }
-</style>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -91,800 +66,253 @@ if (!isset($_SESSION["admin"])) {
                             Tabel Proses PCB
                         </div>
                         <div class="card-body">
-                            <button class="accordion1">Order Verified</button>
-                            <div class="panel">
+                            <div class="">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="datatablesSimple">
                                         <br>
-                                        <thead>
+                                        <thead class="table-light">
                                             <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Order Verfied</strong></center>
-                                                </td>
+                                                <th rowspan="2">
+                                                    <center>No</center>
+                                                </th>
+                                                <th rowspan="2">
+                                                    <center>Nama</center>
+                                                </th>
+                                                <th rowspan="2">
+                                                    <center>No.Invoice</center>
+                                                </th>
+                                                <th rowspan="2">
+                                                    <center>Spec PCB</center>
+                                                </th>
+                                                <th rowspan="2">
+                                                    <center>Jumlah</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Order Verified</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Potong PCB</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Cetak jlr bwh</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Cetak jlr atas</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Masking Bawah</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Masking Atas</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Silkscreen bawah</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>silkscreen atas</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Bor</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Plating</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Finishing</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>QC</center>
+                                                </th>
+                                                <th colspan="4">
+                                                    <center>Packing</center>
+                                                </th>
                                             </tr>
                                             <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
+                                                <td><b>Start</b></td>
+                                                <td><b>Stop</b></td>
+                                                <td><b>Durasi</b></td>
+                                                <td><b>PIC</b></td>
                                             </tr>
-
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, order_verified WHERE order_verified.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 =  $data['start_verif']; ?></td>
-                                                    <td><?php echo $date2 =  $data['stop_verif']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
-                                                    <td><?php echo $data['nama_karyawanV']; ?></td>
-                                                </tr>
-                                            <?php
-                                                $nomor++;
-                                            }
-                                            ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Potong PCB</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
+                                        </thead>
+                                        <?php
+                                        $nomor = 1;
+                                        $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk");
+                                        while ($data = $ambil->fetch_assoc()) {
+                                        ?>
                                             <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Potong PCB</strong></center>
-                                                </td>
+                                                <td><?php echo $nomor; ?></td>
+                                                <td><?php echo $data['nama_customers']; ?></td>
+                                                <td><?php echo $data['no_invoice']; ?></td>
+                                                <td><?php echo $data['spec_pcb']; ?></td>
+                                                <td><?php echo $data['jumlah']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_verif']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_verif']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanV']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_potong']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_potong']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanP']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_ctk_bawah']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_ctk_bawah']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanCB']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_ctk_atas']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_ctk_atas']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanCA']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_masking_bawah']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_masking_bawah']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanMB']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_masking_atas']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_masking_atas']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanMA']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_silk_bawah']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_silk_bawah']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanSB']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_silk_atas']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_silk_atas']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanSA']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_bor']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_bor']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanB']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_plating']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_plating']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanPLT']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_finishing']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_finishing']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanF']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_qc']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_qc']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanQC']; ?></td>
+                                                <td><?php echo $date1 =  $data['start_packing']; ?></td>
+                                                <td><?php echo $date2 =  $data['stop_packing']; ?></td>
+                                                <?php
+                                                $datetime1 = new DateTime($date1);
+                                                $datetime2 = new DateTime($date2);
+                                                $interfal = $datetime1->diff($datetime2);
+                                                ?>
+                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['nama_karyawanPCK']; ?></td>
                                             </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, potong_pcb WHERE potong_pcb.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 =  $data['start_potong']; ?></td>
-                                                    <td><?php echo $date2 =  $data['stop_potong']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
-                                                    <td><?php echo $data['nama_karyawanP']; ?></td>
-                                                </tr>
-                                            <?php
-                                                $nomor++;
-                                            }
-                                            ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Cetak Jalur Bawah</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Cetak Jalur Bawah</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, ctk_jalur_bawah WHERE ctk_jalur_bawah.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 =  $data['start_ctk_bawah']; ?></td>
-                                                    <td><?php echo $date2 =  $data['stop_ctk_bawah']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
-                                                    <td><?php echo $data['nama_karyawanCB']; ?></td>
-                                                </tr>
-                                            <?php
-                                                $nomor++;
-                                            }
-                                            ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Cetak Jalur Atas</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Cetak Jalur Atas</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, ctk_jalur_atas WHERE ctk_jalur_atas.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_ctk_atas']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_ctk_atas']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanCA'] ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            }
-                                            ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Masking Bawah</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Masking Bawah</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, masking_bawah WHERE masking_bawah.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_masking_bawah']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_masking_bawah']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanMB'] ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            }
-                                            ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Masking Atas</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Masking Atas</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, masking_atas WHERE masking_atas.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_masking_atas']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_masking_atas']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanMA'] ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            }
-                                            ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Silkscreen Bawah</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Silkscreen Bawah</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, silkscreen_bawah WHERE silkscreen_bawah.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $dateSB = $data['start_silk_bawah']; ?></td>
-                                                    <td><?php echo $dateSB2 = $data['stop_silk_bawah']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($dateSB);
-                                                    $datetime2 = new DateTime($dateSB2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanSB']; ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            } ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Silkscreen Atas</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Silkscreen Atas</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, silkscreen_atas WHERE silkscreen_atas.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_silk_atas']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_silk_atas']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanSA']; ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            } ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Bor</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Silkscreen Atas</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, bor WHERE bor.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_bor']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_bor']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanB']; ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            } ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Plating</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Plating</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong> </td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, plating WHERE plating.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_plating']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_plating']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanPLT']; ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            } ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Finishing</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Finishing</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong></td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, finishing WHERE finishing.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_finishing']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_finishing']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanF']; ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            } ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Quality Control</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Quality Control</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong></td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, qc WHERE qc.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_qc']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_qc']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanQC']; ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            } ?>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <button class="accordion1">Packing</button>
-                            <div class="panel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <br>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <center><strong>No.</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Nama</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>No.Invoice</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Spec PCB</strong></center>
-                                                </td>
-                                                <td>
-                                                    <center><strong>Jumlah</strong></center>
-                                                </td>
-                                                <td colspan="4">
-                                                    <center><strong>Packing</strong></center>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="5"></td>
-                                                <td><strong>Start</strong></td>
-                                                <td><strong>Stop</strong></td>
-                                                <td><strong>Durasi</strong></td>
-                                                <td><strong>PIC</strong></td>
-                                            </tr>
-                                            <?php
-                                            $nomor = 1;
-                                            $ambil = mysqli_query($koneksi, "SELECT * FROM order_masuk, packing WHERE packing.no_invoice = order_masuk.no_invoice");
-                                            while ($data = $ambil->fetch_assoc()) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nomor; ?></td>
-                                                    <td><?php echo $data['nama_customer']; ?></td>
-                                                    <td><?php echo $data['no_invoice']; ?></td>
-                                                    <td><?php echo $data['spec_pcb']; ?></td>
-                                                    <td><?php echo $data['jumlah']; ?></td>
-                                                    <td><?php echo $date1 = $data['start_packing']; ?></td>
-                                                    <td><?php echo $date2 = $data['stop_packing']; ?></td>
-                                                    <?php
-                                                    $datetime1 = new DateTime($date1);
-                                                    $datetime2 = new DateTime($date2);
-                                                    $interfal = $datetime1->diff($datetime2);
-                                                    ?>
-                                                    <td><?php echo $interfal->format('%H Jam %i Menit %s Detik') ?></td>
-                                                    <td><?php echo $data['nama_karyawanPCK']; ?></td>
-                                                </tr>
-                                            <?php $nomor++;
-                                            } ?>
+                                        <?php $nomor++;
+                                        } ?>
                                     </table>
                                 </div>
                             </div>
@@ -900,24 +328,3 @@ if (!isset($_SESSION["admin"])) {
             </footer>
         </div>
     </div>
-
-    <script>
-        var acc = document.getElementsByClassName("accordion1");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                /* Toggle between adding and removing the "active" class,
-                to highlight the button that controls the panel */
-                this.classList.toggle("active");
-
-                /* Toggle between hiding and showing the active panel */
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>

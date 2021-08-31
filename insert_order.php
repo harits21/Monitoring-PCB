@@ -92,7 +92,13 @@ if (!isset($_SESSION["karyawan"])) {
 
             <?php
             if (isset($_POST['insert'])) {
-                $koneksi->query("INSERT INTO order_masuk (no_invoice, nama_customer, email_customer, spec_pcb, jumlah, nama_karyawan) VALUES ('$_POST[invoice]', '$_POST[nama_cust]', '$_POST[email_cust]', '$_POST[spec]', '$_POST[jumlah]', '$_POST[nama_karyawan]')");
+                $invoice = $_POST['invoice'];
+                $namaCust = $_POST['nama_cust'];
+                $emailCust = $_POST['email_cust'];
+                $spec = $_POST['spec'];
+                $jumlah = $_POST['jumlah'];
+                $namaKaryawan = $_POST['nama_karyawan'];
+                $koneksi->query("INSERT INTO order_masuk (no_invoice, nama_customers, email_customers, spec_pcb, jumlah, nama_karyawanIO) VALUES ('$invoice', '$namaCust', '$emailCust', '$spec', '$jumlah', '$namaKaryawan')");
                 echo "<div class='alert alert-info'>Data Tersimpan</div>";
                 echo "<meta http-equiv='refresh' content='1;url=insert_order.php'>";
             }
