@@ -92,25 +92,9 @@ $pecah = $ambil->fetch_array();
                     <h2 class="mt-4">Lacak Pesanan</h2>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item">
-                            <p>Tabel dibawah ini merupakan tabel tracking progress dari pesanan Anda. Untuk menampilkan progress pesanan Anda silahkan masukkan Nomor Invoice pada kolom dibawah ini dan klik tombol "Lacak Progress".</p>
+                            <p>Tabel dibawah ini merupakan tabel tracking progress dari pesanan Anda. Jika kolom proses masih kosong atau belum ada tanggal itu berarti proses belum dilakukan. Proses yang sudah selesai dilakukan akan ada tanggal beserta jam selesainya.</p>
                         </li>
                     </ol>
-
-                    <form action="user_filter.php" method="POST">
-                        <div class="row mb-3">
-                            <label for="" class="col-sm-2 col-form-label">Masukkan No Invoice</label>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" id="invoice" name="invoice" autofocus>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="" class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-5">
-                                <button type="submit" class="btn btn-primary" name="insert">Lacak Progress</button>
-                            </div>
-                        </div>
-                    </form>
 
                     <div class="card mb-4">
                         <div class="card-header">
@@ -227,24 +211,4 @@ $pecah = $ambil->fetch_array();
             </footer>
         </div>
     </div>
-
-    <script>
-        var acc = document.getElementsByClassName("accordion1");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                /* Toggle between adding and removing the "active" class,
-                to highlight the button that controls the panel */
-                this.classList.toggle("active");
-
-                /* Toggle between hiding and showing the active panel */
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>
+    //end of content

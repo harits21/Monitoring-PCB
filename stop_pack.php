@@ -5,7 +5,8 @@ include_once('email.php');
 $start_pack = $_POST['date_pack'];
 $stop_pack = $_POST['date_pack2'];
 $id_in = $_POST['id_in'];
-$sql = mysqli_query($koneksi, "UPDATE order_masuk SET stop_packing = '$stop_pack' WHERE no_invoice = '$id_in'");
+$durasi = $_POST['durasiPCK'];
+$sql = mysqli_query($koneksi, "UPDATE order_masuk SET stop_packing = '$stop_pack', durasiPCK = '$durasi' WHERE no_invoice = '$id_in'");
 
 $email = "harisramadhan2912@gmail.com";
 $subject = "Tes Email";

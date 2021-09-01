@@ -10,7 +10,6 @@ if (!isset($_SESSION["admin"])) {
     exit();
 }
 ?>
-<!-- style table accordion -->
 
 
 <body class="sb-nav-fixed">
@@ -193,122 +192,57 @@ if (!isset($_SESSION["admin"])) {
                                                 <td><?php echo $data['no_invoice']; ?></td>
                                                 <td><?php echo $data['spec_pcb']; ?></td>
                                                 <td><?php echo $data['jumlah']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_verif']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_verif']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_verif']; ?></td>
+                                                <td><?php echo $data['stop_verif']; ?></td>
+                                                <td><?php echo $data['durasiV'] ?></td>
                                                 <td><?php echo $data['nama_karyawanV']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_potong']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_potong']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_potong']; ?></td>
+                                                <td><?php echo $data['stop_potong']; ?></td>
+                                                <td><?php echo $data['durasiP'] ?></td>
                                                 <td><?php echo $data['nama_karyawanP']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_ctk_bawah']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_ctk_bawah']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_ctk_bawah']; ?></td>
+                                                <td><?php echo $data['stop_ctk_bawah']; ?></td>
+                                                <td><?php echo $data['durasiCB'] ?></td>
                                                 <td><?php echo $data['nama_karyawanCB']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_ctk_atas']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_ctk_atas']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_ctk_atas']; ?></td>
+                                                <td><?php echo $data['stop_ctk_atas']; ?></td>
+                                                <td><?php echo $data['durasiCA'] ?></td>
                                                 <td><?php echo $data['nama_karyawanCA']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_masking_bawah']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_masking_bawah']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_masking_bawah']; ?></td>
+                                                <td><?php echo $data['stop_masking_bawah']; ?></td>
+                                                <td><?php echo $data['durasiMB'] ?></td>
                                                 <td><?php echo $data['nama_karyawanMB']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_masking_atas']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_masking_atas']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_masking_atas']; ?></td>
+                                                <td><?php echo $data['stop_masking_atas']; ?></td>
+                                                <td><?php echo $data['durasiMA'] ?></td>
                                                 <td><?php echo $data['nama_karyawanMA']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_silk_bawah']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_silk_bawah']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_silk_bawah']; ?></td>
+                                                <td><?php echo $data['stop_silk_bawah']; ?></td>
+                                                <td><?php echo $data['durasiSB'] ?></td>
                                                 <td><?php echo $data['nama_karyawanSB']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_silk_atas']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_silk_atas']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_silk_atas']; ?></td>
+                                                <td><?php echo $data['stop_silk_atas']; ?></td>
+                                                <td><?php echo $data['durasiSA'] ?></td>
                                                 <td><?php echo $data['nama_karyawanSA']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_bor']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_bor']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_bor']; ?></td>
+                                                <td><?php echo $data['stop_bor']; ?></td>
+                                                <td><?php echo $data['durasiB'] ?></td>
                                                 <td><?php echo $data['nama_karyawanB']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_plating']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_plating']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_plating']; ?></td>
+                                                <td><?php echo $data['stop_plating']; ?></td>
+                                                <td><?php echo $data['durasiPLT'] ?></td>
                                                 <td><?php echo $data['nama_karyawanPLT']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_finishing']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_finishing']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_finishing']; ?></td>
+                                                <td><?php echo $data['stop_finishing']; ?></td>
+                                                <td><?php echo $data['durasiF'] ?></td>
                                                 <td><?php echo $data['nama_karyawanF']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_qc']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_qc']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_qc']; ?></td>
+                                                <td><?php echo $data['stop_qc']; ?></td>
+                                                <td><?php echo $data['durasiQC'] ?></td>
                                                 <td><?php echo $data['nama_karyawanQC']; ?></td>
-                                                <td><?php echo $date1 =  $data['start_packing']; ?></td>
-                                                <td><?php echo $date2 =  $data['stop_packing']; ?></td>
-                                                <?php
-                                                $datetime1 = new DateTime($date1);
-                                                $datetime2 = new DateTime($date2);
-                                                $interfal = $datetime1->diff($datetime2);
-                                                ?>
-                                                <td><?php echo $interfal->format('%H Jam %i Menit %s Detik'); ?></td>
+                                                <td><?php echo $data['start_packing']; ?></td>
+                                                <td><?php echo $data['stop_packing']; ?></td>
+                                                <td><?php echo $data['durasiPCK'] ?></td>
                                                 <td><?php echo $data['nama_karyawanPCK']; ?></td>
                                             </tr>
                                         <?php $nomor++;
