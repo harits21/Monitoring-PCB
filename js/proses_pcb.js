@@ -62,13 +62,13 @@ function cek_db() {
         } else {
             $('#stopMB').attr("disabled",false);
         } if (obj.start_masking_atas!=null) {
-            $('#startSA').attr("disabled",true);
+            $('#startMA').attr("disabled",true);
         } else {
-            $('#startSA').attr("disabled",false);
-        } if(obj.stop_masking_bawah!=null) {
-            $('#stopSA').attr("disabled",true);
+            $('#startMA').attr("disabled",false);
+        } if(obj.stop_masking_atas!=null) {
+            $('#stopMA').attr("disabled",true);
         } else {
-            $('#stopSA').attr("disabled",false);
+            $('#stopMA').attr("disabled",false);
         } if(obj.start_silk_bawah!=null) {
             $('#startSB').attr("disabled",true);
         } else {

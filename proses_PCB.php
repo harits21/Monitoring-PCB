@@ -85,9 +85,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Order Verified</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date" name="date" class="form-control">
-                        <input hidden disabled type="text" id="date2" name="date2" class="form-control">
-                        <input hidden disabled type="text" id="durasi_v" name="durasi_v" class="form-control">
+                        <input hidden type="text" id="date" name="date" class="form-control">
+                        <input hidden type="text" id="date2" name="date2" class="form-control">
+                        <input hidden type="text" id="durasi_v" name="durasi_v" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_order()" id="startV" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_order()" id="stopV" value="Stop">
                     </div>
@@ -95,9 +95,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Potong PCB</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_p" name="date_p" class="form-control">
-                        <input hidden disabled type="text" id="date_potong2" name="date_potong2" class="form-control">
-                        <input hidden disabled type="text" id="durasiP" name="durasiP" class="form-control">
+                        <input hidden type="text" id="date_p" name="date_p" class="form-control">
+                        <input hidden type="text" id="date_potong2" name="date_potong2" class="form-control">
+                        <input hidden type="text" id="durasiP" name="durasiP" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_potong()" id="startP" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_potong()" id="stopP" value="Stop">
                     </div>
@@ -105,9 +105,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Cetak Jalur bawah</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_ctkb" name="date_ctkb" class="form-control">
-                        <input hidden disabled type="text" id="date_ctkb2" name="date_ctkb2" class="form-control">
-                        <input hidden disabled type="text" id="durasiCB" name="durasiCB" class="form-control">
+                        <input hidden type="text" id="date_ctkb" name="date_ctkb" class="form-control">
+                        <input hidden type="text" id="date_ctkb2" name="date_ctkb2" class="form-control">
+                        <input hidden type="text" id="durasiCB" name="durasiCB" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_ctkb()" id="startCB" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_ctkb()" id="stopCB" value="Stop">
                     </div>
@@ -115,9 +115,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Cetak jalur Atas</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_ctka" name="date_ctka" class="form-control">
-                        <input hidden disabled type="text" id="date_ctka2" name="date_ctka2" class="form-control">
-                        <input hidden disabled type="text" id="durasiCA" name="durasiCA" class="form-control">
+                        <input hidden type="text" id="date_ctka" name="date_ctka" class="form-control">
+                        <input hidden type="text" id="date_ctka2" name="date_ctka2" class="form-control">
+                        <input hidden type="text" id="durasiCA" name="durasiCA" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_ctka()" id="startCA" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_ctka()" id="stopCA" value="Stop">
                     </div>
@@ -125,9 +125,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Masking Bawah</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_mb" name="date_mb" class="form-control">
-                        <input hidden disabled type="text" id="date_mb2" name="date_mb2" class="form-control">
-                        <input hidden disabled type="text" id="durasiMB" name="durasiMB" class="form-control">
+                        <input hidden type="text" id="date_mb" name="date_mb" class="form-control">
+                        <input hidden type="text" id="date_mb2" name="date_mb2" class="form-control">
+                        <input hidden type="text" id="durasiMB" name="durasiMB" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_mb()" id="startMB" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_mb()" id="stopMB" value="Stop">
                     </div>
@@ -135,9 +135,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Masking Atas</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_ma" name="date_ma" class="form-control">
-                        <input hidden disabled type="text" id="date_ma2" name="date_ma2" class="form-control">
-                        <input hidden disabled type="text" id="durasiMA" name="durasiMA" class="form-control">
+                        <input type="text" id="date_ma" name="date_ma" class="form-control">
+                        <input type="text" id="date_ma2" name="date_ma2" class="form-control">
+                        <input type="text" id="durasiMA" name="durasiMA" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_ma()" id="startMA" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_ma()" id="stopMA" value="Stop">
                     </div>
@@ -145,9 +145,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Silkscreen Bawah</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_sb" name="date_sb" class="form-control">
-                        <input hidden disabled type="text" id="date_sb2" name="date_sb2" class="form-control">
-                        <input hidden disabled type="text" id="durasiSB" name="durasiSB" class="form-control">
+                        <input hidden type="text" id="date_sb" name="date_sb" class="form-control">
+                        <input hidden type="text" id="date_sb2" name="date_sb2" class="form-control">
+                        <input hidden type="text" id="durasiSB" name="durasiSB" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_sb()" id="startSB" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_sb()" id="stopSB" value="Stop">
                     </div>
@@ -155,9 +155,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Silkscreen Atas</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_sa" name="date_sa" class="form-control">
-                        <input hidden disabled type="text" id="date_sa2" name="date_sa2" class="form-control">
-                        <input hidden disabled type="text" id="durasiSA" name="durasiSA" class="form-control">
+                        <input hidden type="text" id="date_sa" name="date_sa" class="form-control">
+                        <input hidden type="text" id="date_sa2" name="date_sa2" class="form-control">
+                        <input hidden type="text" id="durasiSA" name="durasiSA" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_sa()" id="startSA" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_sa()" id="stopSA" value="Stop">
                     </div>
@@ -165,9 +165,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Bor</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_bor" name="date_bor" class="form-control">
-                        <input hidden disabled type="text" id="date_bor2" name="date_bor2" class="form-control">
-                        <input hidden disabled type="text" id="durasiB" name="durasiB" class="form-control">
+                        <input hidden type="text" id="date_bor" name="date_bor" class="form-control">
+                        <input hidden type="text" id="date_bor2" name="date_bor2" class="form-control">
+                        <input hidden type="text" id="durasiB" name="durasiB" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_bor()" id="startB" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_bor()" id="stopB" value="Stop">
                     </div>
@@ -175,9 +175,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Plating</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_plat" name="date_plat" class="form-control">
-                        <input hidden disabled type="text" id="date_plat2" name="date_plat2" class="form-control">
-                        <input hidden disabled type="text" id="durasiPLT" name="durasiPLT" class="form-control">
+                        <input hidden type="text" id="date_plat" name="date_plat" class="form-control">
+                        <input hidden type="text" id="date_plat2" name="date_plat2" class="form-control">
+                        <input hidden type="text" id="durasiPLT" name="durasiPLT" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_plat()" id="startPLT" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_plat()" id="stopPLT" value="Stop">
                     </div>
@@ -185,9 +185,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Finishing</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_fi" name="date_fi" class="form-control">
-                        <input hidden disabled type="text" id="date_fi2" name="date_fi2" class="form-control">
-                        <input hidden disabled type="text" id="durasiF" name="durasiF" class="form-control">
+                        <input hidden type="text" id="date_fi" name="date_fi" class="form-control">
+                        <input hidden type="text" id="date_fi2" name="date_fi2" class="form-control">
+                        <input hidden type="text" id="durasiF" name="durasiF" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_fi()" id="startF" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_fi()" id="stopF" value="Stop">
                     </div>
@@ -195,9 +195,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Quality Control</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_qc" name="date_qc" class="form-control">
-                        <input hidden disabled type="text" id="date_qc2" name="date_qc2" class="form-control">
-                        <input hidden disabled type="text" id="durasiQC" name="durasiQC" class="form-control">
+                        <input hidden type="text" id="date_qc" name="date_qc" class="form-control">
+                        <input hidden type="text" id="date_qc2" name="date_qc2" class="form-control">
+                        <input hidden type="text" id="durasiQC" name="durasiQC" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_qc()" id="startQC" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_qc()" id="stopQC" value="Stop">
                     </div>
@@ -205,9 +205,9 @@ if (!isset($_SESSION["karyawan"])) {
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label">Packing</label>
                     <div class="col-sm-10">
-                        <input hidden disabled type="text" id="date_pack" name="date_pack" class="form-control">
-                        <input hidden disabled type="text" id="date_pack2" name="date_pack2" class="form-control">
-                        <input hidden disabled type="text" id="durasiPCK" name="durasiPCK" class="form-control">
+                        <input hidden type="text" id="date_pack" name="date_pack" class="form-control">
+                        <input hidden type="text" id="date_pack2" name="date_pack2" class="form-control">
+                        <input hidden type="text" id="durasiPCK" name="durasiPCK" class="form-control">
                         <input type="button" class="btn btn-primary" onclick="start_pack()" id="startPCK" value="Start">
                         <input type="button" class="btn btn-success" onclick="stop_pack()" id="stopPCK" value="Stop">
                     </div>

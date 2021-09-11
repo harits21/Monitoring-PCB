@@ -8,26 +8,26 @@ $id_in = $_POST['id_in'];
 $durasi = $_POST['durasiPCK'];
 $sql = mysqli_query($koneksi, "UPDATE order_masuk SET stop_packing = '$stop_pack', durasiPCK = '$durasi' WHERE no_invoice = '$id_in'");
 
-$email = "harisramadhan2912@gmail.com";
-$subject = "Tes Email";
-$message = "Ini adalah tes email\n\nRegards,\nAdmin.";
-$from = "rasyid.haris@gmail.com";
+$getEmail = mysqli_query($koneksi, "SELECT email_customers from order_masuk WHERE no_invoice = '$id_in' ");
+$row = $getEmail->fetch_assoc();
+
+
+//Send email to customers
+$email = "$row[email_customers]";
+$subject = "Proses pembuatan PCB Anda dengan Nomor Invoice $id_in telah selesai";
+$message = "Proses pembuatan PCB Anda telah selesai dan siap dikirim, silahkan tunggu pesanan anda sampai dan lihat progress pengirimannya melalui e-commerce yang anda pakai\n\nRegards,\nAdmin.";
+$from = "noreply@raftechpcb.com";
 $headers = "From:" . $from;
 
 // Uncomment this line if you are using online server.
 mail($email, $subject, $message, $headers);
 
-// // Send email to customer
-// $judul_email = "Pesanan Anda telah selesai";
-// $message = "Pesanan PCB anda dengan Nomor Invoice $id_in telah selesai dipacking";
-// $getEmail = mysqli_query($koneksi, "SELECT email_customer from order_masuk WHERE no_invoice = '$id_in' ");
-// $row = $getEmail->fetch_assoc();
+// Send email to management
+$emailadmin = "rasyid.haris@gmail.com";
+$subject_admin = "Proses Pembuatan PCB Nomor Invoice $id_in telah selesai";
+$message_admin = "Pengerjaan PCB dengan Nomor Invoice $id_in telah selesai pada $stop_pack\n\nRegards,\nAdmin.";
+$from_admin = "noreply@raftechpcb.com";
+$headers_admin = "From:" . $from_admin;
 
-// kirim_email($row['email_customer'], $row['email_customer'], $judul_email, $message);
-
-// // Send email to management
-// $judul_email = "Pengerjaan No.Invoice $id_in telah selesai dipacking";
-// $message = "Pengerjaan PCB dengan Nomor Invoice $id_in telah selesai pada $stop_pack";
-// $getEmail = "farhan.adani@gmail.com";
-
-// kirim_email($getEmail, $getEmail, $judul_email, $message);
+// Uncomment this line if you are using online server.
+mail($emailadmin, $subject_admin, $message_admin, $headers_admin);
